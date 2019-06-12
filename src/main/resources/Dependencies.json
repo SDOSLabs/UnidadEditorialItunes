@@ -51,11 +51,20 @@
                 {
                     "name": "delegate",
                     "type": "ArtistAlbumsPresenterDelegate"
+                }, {
+                    "name": "artistBO",
+                    "type": "ArtistBO"
                 }
             ]
         }, {
             "dependencyName": "ArtistAlbumsViewActions",
-            "className": "ArtistAlbumsViewController"
+            "className": "ArtistAlbumsViewController",
+            "arguments": [
+                {
+                    "name": "artistBO",
+                    "type": "ArtistBO"
+                }
+            ]
         }, {
             "dependencyName": "ArtistAlbumsWireframeActions",
             "className": "ArtistAlbumsWireframe"

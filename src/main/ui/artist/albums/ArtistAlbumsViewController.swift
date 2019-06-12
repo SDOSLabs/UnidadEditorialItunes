@@ -23,14 +23,13 @@ protocol ArtistAlbumsViewActions: UIViewController, BaseViewActions, ArtistAlbum
 }
 
 class ArtistAlbumsViewController: BaseViewController {
-    private lazy var presenter: ArtistAlbumsPresenterActions = {
-        Dependency.injector.resolveArtistAlbumsPresenterActions(delegate: self)
-    }()
+    private var presenter: ArtistAlbumsPresenterActions!
     
     //MARK: - Init
     
-    required override init() {
+    required init(artistBO: ArtistBO) {
         super.init()
+        presenter = Dependency.injector.resolveArtistAlbumsPresenterActions(delegate: self, artistBO: artistBO)
     }
     
     required init?(coder aDecoder: NSCoder) {

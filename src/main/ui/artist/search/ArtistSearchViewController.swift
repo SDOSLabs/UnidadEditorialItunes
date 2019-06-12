@@ -61,6 +61,7 @@ extension ArtistSearchViewController: ArtistSearchPresenterDelegate {
     
     func itemsLoaded(items: [ArtistSearchVO]) {
         //Do stuff
+        presenter.goToArtist(artistVO: items[8])
     }
     
     func showError(_ error: Error) {

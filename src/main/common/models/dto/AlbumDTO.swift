@@ -15,10 +15,10 @@ struct AlbumDTO: GenericDTO {
     var releaseDate: String = ""
     
     mutating func map(map: KeyMap) throws {
-        try wrapperType <<- map["wrapperType"]
-        try collectionName <-> map["collectionName"]
-        try image <-> map["artworkUrl100"]
-        try releaseDate <-> map["releaseDate"]
+        try? wrapperType <<- map["wrapperType"]
+        try? collectionName <-> map["collectionName"]
+        try? image <-> map["artworkUrl100"]
+        try? releaseDate <-> map["releaseDate"]
     }
     
     init(from decoder: Decoder) throws {

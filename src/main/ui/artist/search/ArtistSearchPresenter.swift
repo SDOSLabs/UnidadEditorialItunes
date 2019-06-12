@@ -24,7 +24,7 @@ import PromiseKit
  }
  */
 
-protocol ArtistSearchPresenterDelegate: AnyObject {
+protocol ArtistSearchPresenterDelegate: UIViewController {
     func loadUI()
     func showError(_ error: Error)
     func showCenterLoader()
@@ -38,6 +38,7 @@ protocol ArtistSearchPresenterActions: BasePresenterActions {
     var items: [ArtistSearchVO]? { get }
     
     func viewDidLoad()
+    func goToArtist(artistVO: ArtistSearchVO)
 }
 
 class ArtistSearchPresenter: BasePresenter {
@@ -78,6 +79,12 @@ extension ArtistSearchPresenter: ArtistSearchPresenterActions {
             }.finally { [weak self] in
                 guard let self = self else { return }
                 return self.delegate.hideCenterLoader()
+        }
+    }
+    
+    func goToArtist(artistVO: ArtistSearchVO) {
+        if let navigationController = delegate.navigationController {
+                wireframe.goToView(from: navigationController, artistBO: artistVO.itemBO)
         }
     }
 }
