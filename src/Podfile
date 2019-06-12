@@ -27,7 +27,6 @@ def core_pods
     pod 'PromiseKit'
 	
     #Code Generation, dependency injection and environments variables
-    pod 'SDOSL10n'
     pod 'SDOSEnvironment'
     pod 'SDOSSwinject'
     pod 'SwiftGen'
@@ -39,18 +38,9 @@ def core_pods
     #Extensions
     pod 'SwifterSwift'
     
-    #Crash
-    pod 'Crashlytics'
-    
-    #Distribution
-    pod 'Fabric'
-    
-    #Analytics
-    pod 'SDOSFirebase'
-    
     #Debug
-    pod 'SDOSFLEX', :configurations => ['Debug', 'Preproduction']
-    pod 'FLEX', :configurations => ['Debug', 'Preproduction']
+    pod 'SDOSFLEX', :configurations => ['Debug']
+    pod 'FLEX', :configurations => ['Debug']
     
 end
 

@@ -15,8 +15,6 @@ class AppDelegate: PluggableApplicationDelegate {
         return [
             EnviromentService.shared, //MUST BE FIRST
             FLEXService.shared,
-            FabricService.shared,
-            FirebaseService.shared,
             KeyboardService.shared,
             UserInterfaceService.shared
         ]
