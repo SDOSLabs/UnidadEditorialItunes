@@ -24,6 +24,17 @@
 		298C9FC72255F40600A90652 /* FLEXService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C9FC12255F40600A90652 /* FLEXService.swift */; };
 		298C9FC82255F40600A90652 /* UserInterfaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C9FC22255F40600A90652 /* UserInterfaceService.swift */; };
 		29904FBC2252364B0056B188 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29904FBB2252364B0056B188 /* Colors.swift */; };
+		29AA2AFB22B167510074391C /* ArtistBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AA2AF922B167510074391C /* ArtistBO.swift */; };
+		29AA2B0222B167930074391C /* ArtistDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AA2AFF22B167930074391C /* ArtistDTO.swift */; };
+		29AA2B0422B1691D0074391C /* ArtistMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AA2B0322B1691D0074391C /* ArtistMapper.swift */; };
+		29AA2B0C22B169500074391C /* UseCasesArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AA2B0622B169500074391C /* UseCasesArtist.swift */; };
+		29AA2B1022B169500074391C /* ArtistRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AA2B0A22B169500074391C /* ArtistRepository.swift */; };
+		29AA2B1A22B169950074391C /* ArtistSearchVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AA2B1422B169950074391C /* ArtistSearchVO.swift */; };
+		29AA2B1B22B169950074391C /* ArtistSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AA2B1522B169950074391C /* ArtistSearchPresenter.swift */; };
+		29AA2B1C22B169950074391C /* ArtistSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AA2B1622B169950074391C /* ArtistSearchViewController.swift */; };
+		29AA2B1D22B169950074391C /* ArtistSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29AA2B1722B169950074391C /* ArtistSearchViewController.xib */; };
+		29AA2B1E22B169950074391C /* ArtistSearchWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AA2B1822B169950074391C /* ArtistSearchWireframe.swift */; };
+		29AA2B2022B16A200074391C /* ErrorDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AA2B1F22B16A200074391C /* ErrorDTO.swift */; };
 		29B0F27D224942BE00947F62 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29B0F27C224942BE00947F62 /* LaunchScreen.xib */; };
 		29BB44302237FE6A00401682 /* Environments.bin in Resources */ = {isa = PBXBuildFile; fileRef = 29BB442F2237FE6A00401682 /* Environments.bin */; };
 		29D35C9122363E8900F34C48 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29D35C9022363E8900F34C48 /* AppIcon.xcassets */; };
@@ -62,6 +73,17 @@
 		298C9FC12255F40600A90652 /* FLEXService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLEXService.swift; sourceTree = "<group>"; };
 		298C9FC22255F40600A90652 /* UserInterfaceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInterfaceService.swift; sourceTree = "<group>"; };
 		29904FBB2252364B0056B188 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		29AA2AF922B167510074391C /* ArtistBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistBO.swift; sourceTree = "<group>"; };
+		29AA2AFF22B167930074391C /* ArtistDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistDTO.swift; sourceTree = "<group>"; };
+		29AA2B0322B1691D0074391C /* ArtistMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistMapper.swift; sourceTree = "<group>"; };
+		29AA2B0622B169500074391C /* UseCasesArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCasesArtist.swift; sourceTree = "<group>"; };
+		29AA2B0A22B169500074391C /* ArtistRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistRepository.swift; sourceTree = "<group>"; };
+		29AA2B1422B169950074391C /* ArtistSearchVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchVO.swift; sourceTree = "<group>"; };
+		29AA2B1522B169950074391C /* ArtistSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchPresenter.swift; sourceTree = "<group>"; };
+		29AA2B1622B169950074391C /* ArtistSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchViewController.swift; sourceTree = "<group>"; };
+		29AA2B1722B169950074391C /* ArtistSearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtistSearchViewController.xib; sourceTree = "<group>"; };
+		29AA2B1822B169950074391C /* ArtistSearchWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistSearchWireframe.swift; sourceTree = "<group>"; };
+		29AA2B1F22B16A200074391C /* ErrorDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDTO.swift; sourceTree = "<group>"; };
 		29B0F278224933DC00947F62 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		29B0F279224933DC00947F62 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		29B0F27C224942BE00947F62 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -101,6 +123,7 @@
 		2905B715223256A6007206DE /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				29AA2B1122B1697A0074391C /* artist */,
 				2905B718223256E9007206DE /* vo */,
 			);
 			path = ui;
@@ -119,6 +142,7 @@
 		2905B718223256E9007206DE /* vo */ = {
 			isa = PBXGroup;
 			children = (
+				29AA2B1422B169950074391C /* ArtistSearchVO.swift */,
 			);
 			path = vo;
 			sourceTree = "<group>";
@@ -126,6 +150,8 @@
 		2905B719223256EE007206DE /* dto */ = {
 			isa = PBXGroup;
 			children = (
+				29AA2AFF22B167930074391C /* ArtistDTO.swift */,
+				29AA2B1F22B16A200074391C /* ErrorDTO.swift */,
 			);
 			path = dto;
 			sourceTree = "<group>";
@@ -133,6 +159,7 @@
 		2905B71A2232577D007206DE /* mapper */ = {
 			isa = PBXGroup;
 			children = (
+				29AA2B0322B1691D0074391C /* ArtistMapper.swift */,
 			);
 			path = mapper;
 			sourceTree = "<group>";
@@ -147,6 +174,7 @@
 		2905B71C22325866007206DE /* repositories */ = {
 			isa = PBXGroup;
 			children = (
+				29AA2B0A22B169500074391C /* ArtistRepository.swift */,
 			);
 			path = repositories;
 			sourceTree = "<group>";
@@ -277,13 +305,34 @@
 		299C0059223BBEC5000D816C /* bo */ = {
 			isa = PBXGroup;
 			children = (
+				29AA2AF922B167510074391C /* ArtistBO.swift */,
 			);
 			path = bo;
+			sourceTree = "<group>";
+		};
+		29AA2B1122B1697A0074391C /* artist */ = {
+			isa = PBXGroup;
+			children = (
+				29AA2B1222B169810074391C /* search */,
+			);
+			path = artist;
+			sourceTree = "<group>";
+		};
+		29AA2B1222B169810074391C /* search */ = {
+			isa = PBXGroup;
+			children = (
+				29AA2B1522B169950074391C /* ArtistSearchPresenter.swift */,
+				29AA2B1622B169950074391C /* ArtistSearchViewController.swift */,
+				29AA2B1722B169950074391C /* ArtistSearchViewController.xib */,
+				29AA2B1822B169950074391C /* ArtistSearchWireframe.swift */,
+			);
+			path = search;
 			sourceTree = "<group>";
 		};
 		29B0F2312248D47400947F62 /* useCases */ = {
 			isa = PBXGroup;
 			children = (
+				29AA2B0622B169500074391C /* UseCasesArtist.swift */,
 			);
 			path = useCases;
 			sourceTree = "<group>";
@@ -379,6 +428,7 @@
 			files = (
 				29B0F27D224942BE00947F62 /* LaunchScreen.xib in Resources */,
 				2940E453223187690057986A /* Assets.xcassets in Resources */,
+				29AA2B1D22B169950074391C /* ArtistSearchViewController.xib in Resources */,
 				29D35C9122363E8900F34C48 /* AppIcon.xcassets in Resources */,
 				2905B74722329F9C007206DE /* Localizable.generated.strings in Resources */,
 				29BB44302237FE6A00401682 /* Environments.bin in Resources */,
@@ -583,22 +633,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29AA2B1022B169500074391C /* ArtistRepository.swift in Sources */,
 				2905B728223277DA007206DE /* VIPERBaseClass.swift in Sources */,
 				29904FBC2252364B0056B188 /* Colors.swift in Sources */,
 				29D35C952236435100F34C48 /* Style+Design.swift in Sources */,
 				2905B727223277DA007206DE /* VIPERBaseProtocol.swift in Sources */,
+				29AA2B1B22B169950074391C /* ArtistSearchPresenter.swift in Sources */,
 				298C9FC52255F40600A90652 /* KeyboardService.swift in Sources */,
 				298C9FC82255F40600A90652 /* UserInterfaceService.swift in Sources */,
+				29AA2B0C22B169500074391C /* UseCasesArtist.swift in Sources */,
+				29AA2B0422B1691D0074391C /* ArtistMapper.swift in Sources */,
 				296D911F22646E8500380A68 /* Fonts.generated.swift in Sources */,
 				296D911E22646E8500380A68 /* Dependencies.generated.swift in Sources */,
 				2902F68A224100A4002378CE /* Dependency.swift in Sources */,
 				2940E44C223187670057986A /* AppDelegate.swift in Sources */,
+				29AA2B1C22B169950074391C /* ArtistSearchViewController.swift in Sources */,
 				296D912122646E8500380A68 /* Images.generated.swift in Sources */,
+				29AA2AFB22B167510074391C /* ArtistBO.swift in Sources */,
 				296D912022646E8500380A68 /* Strings.generated.swift in Sources */,
 				296D911D22646E8500380A68 /* Environment.generated.swift in Sources */,
+				29AA2B0222B167930074391C /* ArtistDTO.swift in Sources */,
+				29AA2B2022B16A200074391C /* ErrorDTO.swift in Sources */,
 				298C9FC72255F40600A90652 /* FLEXService.swift in Sources */,
+				29AA2B1E22B169950074391C /* ArtistSearchWireframe.swift in Sources */,
 				293E48E0223A784900DDAC23 /* Constants.swift in Sources */,
 				298C9FC62255F40600A90652 /* EnviromentService.swift in Sources */,
+				29AA2B1A22B169950074391C /* ArtistSearchVO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

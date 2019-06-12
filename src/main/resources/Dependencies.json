@@ -17,5 +17,27 @@
                     "type": "UIViewController"
                 }
             ]
-        }]
+        }, {
+            "dependencyName": "ArtistRepositoryActions",
+            "className": "ArtistRepository"
+        }, {
+            "dependencyName": "UseCaseArtistSearch",
+            "className": "UseCaseArtist.Search"
+        }, {
+            "dependencyName": "ArtistSearchPresenterActions",
+            "className": "ArtistSearchPresenter",
+            "arguments": [
+                {
+                    "name": "delegate",
+                    "type": "ArtistSearchPresenterDelegate"
+                }
+            ]
+        }, {
+            "dependencyName": "ArtistSearchViewActions",
+            "className": "ArtistSearchViewController"
+        }, {
+            "dependencyName": "ArtistSearchWireframeActions",
+            "className": "ArtistSearchWireframe"
+        }
+    ]
 }
