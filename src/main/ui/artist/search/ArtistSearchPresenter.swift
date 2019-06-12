@@ -66,7 +66,7 @@ extension ArtistSearchPresenter: ArtistSearchPresenterActions {
         firstly { [weak self] () -> Promise<[ArtistBO]> in
             guard let self = self else { throw PMKError.cancelled }
             self.delegate.showCenterLoader()
-            return useCaseArtistSearch.execute()
+            return useCaseArtistSearch.execute(term: "Katy")
             }.map { (items: [ArtistBO]) in
                 items.map { ArtistSearchVO(with: $0) }
             }.done { [weak self] items in

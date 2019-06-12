@@ -21,7 +21,7 @@ import Alamofire
 
 //MARK: - Definition
 protocol UseCaseAlbumList: BaseUseCaseProtocol {
-    func execute() -> Promise<[AlbumBO]>
+    func execute(id: String) -> Promise<[AlbumBO]>
 }
 
 //MARK: - Implementation
@@ -32,11 +32,11 @@ struct UseCaseAlbum {
         }()
         var request: Request?
         
-        func execute() -> Promise<[AlbumBO]> {
+        func execute(id: String) -> Promise<[AlbumBO]> {
             request?.cancel()
             return firstly { [weak self] () -> Promise<[AlbumBO]> in
                 guard let self = self else { throw PMKError.cancelled }
-                let requestValue = repository.load()
+                let requestValue = repository.load(id: id)
                 self.request = requestValue.request
                 return requestValue.value
             }

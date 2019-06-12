@@ -21,7 +21,7 @@ import Alamofire
  */
 
 protocol AlbumRepositoryActions: BaseRepositoryActions {
-    func load() -> RequestValue<Promise<[AlbumBO]>>
+    func load(id: String) -> RequestValue<Promise<[AlbumBO]>>
 }
 
 class AlbumRepository: BaseRepository {
@@ -29,9 +29,16 @@ class AlbumRepository: BaseRepository {
 }
 
 extension AlbumRepository: AlbumRepositoryActions {
-    func load() -> RequestValue<Promise<[AlbumBO]>> {
-        let url = "Constants.ws.Album"
-        let responseSerializer = SDOSJSONResponseSerializer<[AlbumDTO], ErrorDTO>()
+    func load(id: String) -> RequestValue<Promise<[AlbumBO]>> {
+        let params: [String] = [
+            Constants.ws.paramKey.id + "=" + id.urlEncoded,
+            Constants.ws.paramKey.attribute + "=" + Constants.ws.paramValue.attributeAlbum,
+            Constants.ws.paramKey.entity + "=" + Constants.ws.paramValue.entityAlbum,
+            Constants.ws.paramKey.sort + "=" + Constants.ws.paramValue.sortRecent
+        ]
+        
+        let url = Environment.urlBase + Constants.ws.search + "?" + params.joined(separator: "&")
+        let responseSerializer = SDOSJSONResponseSerializer<[AlbumDTO], ErrorDTO>(jsonResponseRootKey: "results")
         let request = session.request(url, method: .get, parameters: nil)
         
         let promise = Promise<[AlbumDTO]> { seal in

@@ -66,7 +66,7 @@ extension ArtistAlbumsPresenter: ArtistAlbumsPresenterActions {
         firstly { [weak self] () -> Promise<[AlbumBO]> in
             guard let self = self else { throw PMKError.cancelled }
             self.delegate.showCenterLoader()
-            return useCaseAlbumList.execute()
+            return useCaseAlbumList.execute(id: "64387566")
             }.map { (items: [AlbumBO]) in
                 items.map { AlbumVO(with: $0) }
             }.done { [weak self] items in

@@ -8,13 +8,20 @@
 import UIKit
 
 extension AlbumDTO {
-    func toBO() -> AlbumBO {
+    func toBO() -> AlbumBO? {
     return AlbumBO(dto: self)
     }
 }
 
 extension AlbumBO {
-    init(dto item: AlbumDTO) {
-        
+    init?(dto item: AlbumDTO) {
+        switch item.wrapperType {
+        case .collection:
+            collectionName = item.collectionName
+            image = item.image
+            releaseDate = item.releaseDate
+        default:
+            return nil
+        }
     }
 }

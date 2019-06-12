@@ -6,5 +6,7 @@
 //
 
 struct AlbumBO {
-    
+    var collectionName: String
+    var image: String
+    var releaseDate: String
 }

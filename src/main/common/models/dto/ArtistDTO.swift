@@ -9,9 +9,14 @@ import SDOSAlamofire
 import SDOSKeyedCodable
 
 struct ArtistDTO: GenericDTO {
+    var artistId: Int = 0
+    var artistName: String = ""
+    var primaryGenreName: String?
     
     mutating func map(map: KeyMap) throws {
-        //try identifier <-> map["id"]
+        try artistId <-> map["artistId"]
+        try artistName <-> map["artistName"]
+        try primaryGenreName <-> map["primaryGenreName"]
     }
     
     init(from decoder: Decoder) throws {

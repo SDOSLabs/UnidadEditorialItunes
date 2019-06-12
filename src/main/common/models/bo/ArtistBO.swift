@@ -6,5 +6,7 @@
 //
 
 struct ArtistBO {
-    
+    var artistId: Int
+    var artistName: String
+    var primaryGenreName: String?
 }

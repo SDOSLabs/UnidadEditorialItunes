@@ -21,7 +21,7 @@ import Alamofire
 
 //MARK: - Definition
 protocol UseCaseArtistSearch: BaseUseCaseProtocol {
-    func execute() -> Promise<[ArtistBO]>
+    func execute(term: String) -> Promise<[ArtistBO]>
 }
 
 //MARK: - Implementation
@@ -32,11 +32,11 @@ struct UseCaseArtist {
         }()
         var request: Request?
         
-        func execute() -> Promise<[ArtistBO]> {
+        func execute(term: String) -> Promise<[ArtistBO]> {
             request?.cancel()
             return firstly { [weak self] () -> Promise<[ArtistBO]> in
                 guard let self = self else { throw PMKError.cancelled }
-                let requestValue = repository.loadSearch()
+                let requestValue = repository.loadSearch(term: term)
                 self.request = requestValue.request
                 return requestValue.value
             }

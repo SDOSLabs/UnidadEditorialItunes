@@ -15,6 +15,8 @@ extension ArtistDTO {
 
 extension ArtistBO {
      init(dto item: ArtistDTO) {
-        
+        artistId = item.artistId
+        artistName = item.artistName
+        primaryGenreName = item.primaryGenreName
     }
 }

@@ -10,6 +10,7 @@ import SDOSVIPER
 import PromiseKit
 import SDOSAlamofire
 import Alamofire
+import SwifterSwift
 
 /*
  Dependency register JSON
@@ -21,7 +22,7 @@ import Alamofire
  */
 
 protocol ArtistRepositoryActions: BaseRepositoryActions {
-    func loadSearch() -> RequestValue<Promise<[ArtistBO]>>
+    func loadSearch(term: String) -> RequestValue<Promise<[ArtistBO]>>
 }
 
 class ArtistRepository: BaseRepository {
@@ -29,9 +30,15 @@ class ArtistRepository: BaseRepository {
 }
 
 extension ArtistRepository: ArtistRepositoryActions {
-    func loadSearch() -> RequestValue<Promise<[ArtistBO]>> {
-        let url = "Constants.ws.ArtistSearch"
-        let responseSerializer = SDOSJSONResponseSerializer<[ArtistDTO], ErrorDTO>()
+    func loadSearch(term: String) -> RequestValue<Promise<[ArtistBO]>> {
+        let params: [String] = [
+            Constants.ws.paramKey.term + "=" + term.urlEncoded,
+            Constants.ws.paramKey.attribute + "=" + Constants.ws.paramValue.attributeArtist,
+            Constants.ws.paramKey.entity + "=" + Constants.ws.paramValue.entityArtist
+        ]
+        
+        let url = Environment.urlBase + Constants.ws.search + "?" + params.joined(separator: "&")
+        let responseSerializer = SDOSJSONResponseSerializer<[ArtistDTO], ErrorDTO>(jsonResponseRootKey: "results")
         let request = session.request(url, method: .get, parameters: nil)
         
         let promise = Promise<[ArtistDTO]> { seal in
