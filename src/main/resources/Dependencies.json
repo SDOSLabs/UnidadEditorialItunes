@@ -38,6 +38,27 @@
         }, {
             "dependencyName": "ArtistSearchWireframeActions",
             "className": "ArtistSearchWireframe"
+        }, {
+            "dependencyName": "AlbumRepositoryActions",
+            "className": "AlbumRepository"
+        }, {
+            "dependencyName": "UseCaseAlbumList",
+            "className": "UseCaseAlbum.List"
+        }, {
+            "dependencyName": "ArtistAlbumsPresenterActions",
+            "className": "ArtistAlbumsPresenter",
+            "arguments": [
+                {
+                    "name": "delegate",
+                    "type": "ArtistAlbumsPresenterDelegate"
+                }
+            ]
+        }, {
+            "dependencyName": "ArtistAlbumsViewActions",
+            "className": "ArtistAlbumsViewController"
+        }, {
+            "dependencyName": "ArtistAlbumsWireframeActions",
+            "className": "ArtistAlbumsWireframe"
         }
     ]
 }
