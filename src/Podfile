@@ -1,0 +1,59 @@
+source 'https://svrgitpub.sdos.es/iOS/cocoapods-specs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '10.0'
+use_frameworks!
+inhibit_all_warnings!
+
+def core_pods
+
+    #Services
+    pod 'SDOSPluggableApplicationDelegate'
+
+    #Keyboard
+    pod 'IQKeyboardManagerSwift'
+
+    #Images
+    pod 'Kingfisher'
+    
+    #WS
+    pod 'SDOSAlamofire'
+    
+    #Database
+    #pod 'RealmWrapper'
+    
+    #Architecture
+    pod 'SDOSVIPER'
+    pod 'PromiseKit'
+	
+    #Code Generation, dependency injection and environments variables
+    pod 'SDOSL10n'
+    pod 'SDOSEnvironment'
+    pod 'SDOSSwinject'
+    pod 'SwiftGen'
+    
+    #Animations and loaders
+    pod 'SDOSHero'
+    pod 'SDOSLoader'
+    
+    #Extensions
+    pod 'SwifterSwift'
+    
+    #Crash
+    pod 'Crashlytics'
+    
+    #Distribution
+    pod 'Fabric'
+    
+    #Analytics
+    pod 'SDOSFirebase'
+    
+    #Debug
+    pod 'SDOSFLEX', :configurations => ['Debug', 'Preproduction']
+    pod 'FLEX', :configurations => ['Debug', 'Preproduction']
+    
+end
+
+target :UnidadEditorialItunes do
+	core_pods
+end
