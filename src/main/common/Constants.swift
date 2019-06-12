@@ -20,6 +20,7 @@ struct Constants {
             static let sort = "sort"
             
         }
+        
         struct paramValue {
             static let entityAlbum = "album"
             static let attributeAlbum = "albumTerm"
@@ -27,5 +28,9 @@ struct Constants {
             static let entityArtist = "allArtist"
             static let attributeArtist = "allArtistTerm"
         }
+    }
+    
+    struct date {
+        static let formatAlbum = "YYYY-MM-DD'T'HH:mm:ss'Z'"
     }
 }

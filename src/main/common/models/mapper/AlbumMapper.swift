@@ -19,7 +19,9 @@ extension AlbumBO {
         case .collection:
             collectionName = item.collectionName
             image = item.image
-            releaseDate = item.releaseDate
+            let dateFormat = DateFormatter.init()
+            dateFormat.dateFormat = Constants.date.formatAlbum
+            releaseDate = dateFormat.date(from: item.releaseDate)
         default:
             return nil
         }

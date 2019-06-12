@@ -10,6 +10,14 @@ import Foundation
 class ArtistSearchVO {
     let itemBO: ArtistBO
     
+    var name: String {
+        return itemBO.artistName
+    }
+    
+    var genre: String? {
+        return itemBO.primaryGenreName
+    }
+    
     public init(with itemBO: ArtistBO) {
         self.itemBO = itemBO
     }
