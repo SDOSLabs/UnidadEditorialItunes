@@ -45,6 +45,12 @@ class ArtistAlbumsViewController: BaseViewController {
         self.presenter.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        presenter.viewWillAppear()
+    }
+    
     //MARK: - Custom methods
 
 }
@@ -67,10 +73,16 @@ extension ArtistAlbumsViewController: ArtistAlbumsPresenterDelegate {
     }
     
     func showCenterLoader() {
-        //LoaderManager.showLoader(LoaderManager.loader(withType: LoaderTypeIndeterminateCircular, in: view))
+        let loaderObject = LoaderManager.loader(loaderType: .indeterminateCircular(nil), inView: view, size: nil)
+        LoaderManager.showLoader(loaderObject)
     }
     
     func hideCenterLoader() {
-        //LoaderManager.hideLoaders(of: view)
+        LoaderManager.hideLoaderOfView(view)
+    }
+    
+    func configureNavigationBar() {
+        self.navigationItem.largeTitleDisplayMode = .never
+//        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
 }

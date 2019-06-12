@@ -10,7 +10,6 @@
 		2902F68A224100A4002378CE /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2902F689224100A4002378CE /* Dependency.swift */; };
 		2905B727223277DA007206DE /* VIPERBaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2905B724223277D9007206DE /* VIPERBaseProtocol.swift */; };
 		2905B728223277DA007206DE /* VIPERBaseClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2905B726223277D9007206DE /* VIPERBaseClass.swift */; };
-		2905B74722329F9C007206DE /* Localizable.generated.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2905B74522329F9C007206DE /* Localizable.generated.strings */; };
 		293E48E0223A784900DDAC23 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 293E48DF223A784900DDAC23 /* Constants.swift */; };
 		2940E44C223187670057986A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2940E44B223187670057986A /* AppDelegate.swift */; };
 		2940E453223187690057986A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2940E452223187690057986A /* Assets.xcassets */; };
@@ -45,6 +44,7 @@
 		29AA2B4222B16B490074391C /* AlbumBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AA2B3C22B16B490074391C /* AlbumBO.swift */; };
 		29AA2B4322B16B490074391C /* AlbumRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AA2B3D22B16B490074391C /* AlbumRepository.swift */; };
 		29AA2B4522B16C2E0074391C /* AlbumVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AA2B4422B16C2E0074391C /* AlbumVO.swift */; };
+		29AA2B4C22B17DD90074391C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29AA2B4922B17DD90074391C /* Localizable.strings */; };
 		29B0F27D224942BE00947F62 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29B0F27C224942BE00947F62 /* LaunchScreen.xib */; };
 		29BB44302237FE6A00401682 /* Environments.bin in Resources */ = {isa = PBXBuildFile; fileRef = 29BB442F2237FE6A00401682 /* Environments.bin */; };
 		29D35C9122363E8900F34C48 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29D35C9022363E8900F34C48 /* AppIcon.xcassets */; };
@@ -60,7 +60,6 @@
 		2905B73722328AA2007206DE /* UnidadEditorialItunes.debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = UnidadEditorialItunes.debug.xcconfig; sourceTree = "<group>"; };
 		2905B73A22328AD1007206DE /* UnidadEditorialItunes.shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = UnidadEditorialItunes.shared.xcconfig; sourceTree = "<group>"; };
 		2905B73E223296C3007206DE /* Environments.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Environments.plist; sourceTree = "<group>"; };
-		2905B74622329F9C007206DE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.generated.strings; sourceTree = "<group>"; };
 		293E48DF223A784900DDAC23 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2940E448223187670057986A /* UnidadEditorialItunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnidadEditorialItunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2940E44B223187670057986A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +103,7 @@
 		29AA2B3C22B16B490074391C /* AlbumBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumBO.swift; sourceTree = "<group>"; };
 		29AA2B3D22B16B490074391C /* AlbumRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRepository.swift; sourceTree = "<group>"; };
 		29AA2B4422B16C2E0074391C /* AlbumVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumVO.swift; sourceTree = "<group>"; };
+		29AA2B4A22B17DD90074391C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		29B0F278224933DC00947F62 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
 		29B0F279224933DC00947F62 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		29B0F27C224942BE00947F62 /* LaunchScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -143,6 +143,7 @@
 		2905B715223256A6007206DE /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				29AA2B4D22B199180074391C /* cells */,
 				29AA2B1122B1697A0074391C /* artist */,
 				2905B718223256E9007206DE /* vo */,
 			);
@@ -214,6 +215,7 @@
 		2905B71E223258FA007206DE /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				29AA2B4622B17DD90074391C /* localizable */,
 				2902F6862240FC2B002378CE /* Dependencies.json */,
 				2905B73E223296C3007206DE /* Environments.plist */,
 				29D35C942236435100F34C48 /* Style+Design.swift */,
@@ -262,7 +264,6 @@
 				296D911A22646E8500380A68 /* Fonts.generated.swift */,
 				296D911C22646E8500380A68 /* Images.generated.swift */,
 				296D911B22646E8500380A68 /* Strings.generated.swift */,
-				2905B74522329F9C007206DE /* Localizable.generated.strings */,
 			);
 			path = generated;
 			sourceTree = "<group>";
@@ -364,6 +365,21 @@
 				29AA2B2722B16AC60074391C /* ArtistAlbumsWireframe.swift */,
 			);
 			path = albums;
+			sourceTree = "<group>";
+		};
+		29AA2B4622B17DD90074391C /* localizable */ = {
+			isa = PBXGroup;
+			children = (
+				29AA2B4922B17DD90074391C /* Localizable.strings */,
+			);
+			path = localizable;
+			sourceTree = "<group>";
+		};
+		29AA2B4D22B199180074391C /* cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 		29B0F2312248D47400947F62 /* useCases */ = {
@@ -468,8 +484,8 @@
 				29AA2B2C22B16AC60074391C /* ArtistAlbumsViewController.xib in Resources */,
 				2940E453223187690057986A /* Assets.xcassets in Resources */,
 				29AA2B1D22B169950074391C /* ArtistSearchViewController.xib in Resources */,
+				29AA2B4C22B17DD90074391C /* Localizable.strings in Resources */,
 				29D35C9122363E8900F34C48 /* AppIcon.xcassets in Resources */,
-				2905B74722329F9C007206DE /* Localizable.generated.strings in Resources */,
 				29BB44302237FE6A00401682 /* Environments.bin in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -572,6 +588,8 @@
 			inputPaths = (
 				"${TEMP_DIR}/swiftgen-lastrun",
 				"$(SRCROOT)/scripts/SwiftGen.sh",
+				"${SRCROOT}/main/resources/localizable/es.lproj/Localizable.strings",
+				"${SRCROOT}/main/resources/Assets.xcassets",
 			);
 			name = "Swiftgen - Images, Fonts and Strings";
 			outputFileListPaths = (
@@ -713,12 +731,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2905B74522329F9C007206DE /* Localizable.generated.strings */ = {
+		29AA2B4922B17DD90074391C /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2905B74622329F9C007206DE /* es */,
+				29AA2B4A22B17DD90074391C /* es */,
 			);
-			name = Localizable.generated.strings;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -775,7 +793,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;

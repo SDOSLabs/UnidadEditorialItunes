@@ -30,6 +30,7 @@ protocol ArtistAlbumsPresenterDelegate: AnyObject {
     func showCenterLoader()
     func hideCenterLoader()
     func itemsLoaded(items: [AlbumVO])
+    func configureNavigationBar()
 }
 
 protocol ArtistAlbumsPresenterActions: BasePresenterActions {
@@ -38,6 +39,7 @@ protocol ArtistAlbumsPresenterActions: BasePresenterActions {
     var items: [AlbumVO]? { get }
     
     func viewDidLoad()
+    func viewWillAppear()
 }
 
 class ArtistAlbumsPresenter: BasePresenter {
@@ -73,6 +75,7 @@ extension ArtistAlbumsPresenter: ArtistAlbumsPresenterActions {
                 items.map { AlbumVO(with: $0) }
             }.done { [weak self] items in
                 guard let self = self else { throw PMKError.cancelled }
+                self.items = items
                 return self.delegate.itemsLoaded(items: items)
             }.catch { [weak self] error in
                 guard let self = self else { return }
@@ -81,5 +84,9 @@ extension ArtistAlbumsPresenter: ArtistAlbumsPresenterActions {
                 guard let self = self else { return }
                 return self.delegate.hideCenterLoader()
         }
+    }
+    
+    func viewWillAppear() {
+        delegate.configureNavigationBar()
     }
 }

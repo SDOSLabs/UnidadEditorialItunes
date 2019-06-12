@@ -30,6 +30,11 @@ protocol ArtistSearchPresenterDelegate: UIViewController {
     func showCenterLoader()
     func hideCenterLoader()
     func itemsLoaded(items: [ArtistSearchVO])
+    func loadSearchComponent()
+    func showResults()
+    func showEmptyView()
+    func showNoResultView()
+    func configureNavigationBar()
 }
 
 protocol ArtistSearchPresenterActions: BasePresenterActions {
@@ -38,7 +43,9 @@ protocol ArtistSearchPresenterActions: BasePresenterActions {
     var items: [ArtistSearchVO]? { get }
     
     func viewDidLoad()
-    func goToArtist(artistVO: ArtistSearchVO)
+    func viewWillAppear()
+    func goToArtist(withIndex index: Int)
+    func search(term: String?)
 }
 
 class ArtistSearchPresenter: BasePresenter {
@@ -64,27 +71,46 @@ class ArtistSearchPresenter: BasePresenter {
 extension ArtistSearchPresenter: ArtistSearchPresenterActions {
     func viewDidLoad() {
         delegate.loadUI()
+        delegate.loadSearchComponent()
+    }
+    
+    func viewWillAppear() {
+        delegate.configureNavigationBar()
+    }
+    
+    func goToArtist(withIndex index: Int) {
+        if let navigationController = delegate.navigationController, let artistBO = items?[index].itemBO {
+                wireframe.goToView(from: navigationController, artistBO: artistBO)
+        }
+    }
+    
+    func search(term: String?) {
+        guard let term = term, !term.isEmpty else {
+            delegate.showEmptyView()
+            return
+        }
+        
         firstly { [weak self] () -> Promise<[ArtistBO]> in
             guard let self = self else { throw PMKError.cancelled }
             self.delegate.showCenterLoader()
-            return useCaseArtistSearch.execute(term: "Katy")
+            return useCaseArtistSearch.execute(term: term)
             }.map { (items: [ArtistBO]) in
                 items.map { ArtistSearchVO(with: $0) }
             }.done { [weak self] items in
                 guard let self = self else { throw PMKError.cancelled }
-                return self.delegate.itemsLoaded(items: items)
+                self.items = items
+                if items.isEmpty {
+                    self.delegate.showNoResultView()
+                } else {
+                    self.delegate.itemsLoaded(items: items)
+                    self.delegate.showResults()
+                }
             }.catch { [weak self] error in
                 guard let self = self else { return }
                 return self.delegate.showError(error)
             }.finally { [weak self] in
                 guard let self = self else { return }
                 return self.delegate.hideCenterLoader()
-        }
-    }
-    
-    func goToArtist(artistVO: ArtistSearchVO) {
-        if let navigationController = delegate.navigationController {
-                wireframe.goToView(from: navigationController, artistBO: artistVO.itemBO)
         }
     }
 }
