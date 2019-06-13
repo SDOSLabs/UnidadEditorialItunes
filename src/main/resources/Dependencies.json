@@ -2,13 +2,11 @@
     "config": {
         "name": null
     },
-    "headers": [
-        "typealias NavigationController = UINavigationController"
-    ],
+    "headers": null,
     "body": [
         {
             "dependencyName": "NavigationController",
-            "className": "UINavigationController",
+            "className": "NavigationController",
             "name": null,
             "scope": null,
             "arguments": [
@@ -54,6 +52,9 @@
                 }, {
                     "name": "artistBO",
                     "type": "ArtistBO"
+                }, {
+                    "name": "albumsBO",
+                    "type": "[AlbumBO]?"
                 }
             ]
         }, {
@@ -63,6 +64,9 @@
                 {
                     "name": "artistBO",
                     "type": "ArtistBO"
+                }, {
+                    "name": "albumsBO",
+                    "type": "[AlbumBO]?"
                 }
             ]
         }, {

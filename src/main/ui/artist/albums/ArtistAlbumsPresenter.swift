@@ -34,9 +34,10 @@ protocol ArtistAlbumsPresenterDelegate: AnyObject {
 }
 
 protocol ArtistAlbumsPresenterActions: BasePresenterActions {
-    init(delegate: ArtistAlbumsPresenterDelegate, artistBO: ArtistBO)
+    init(delegate: ArtistAlbumsPresenterDelegate, artistBO: ArtistBO, albumsBO: [AlbumBO]?)
     
-    var items: [AlbumVO]? { get }
+    var albumsVO: [AlbumVO]? { get }
+    var artistVO: ArtistSearchVO { get }
     
     func viewDidLoad()
     func viewWillAppear()
@@ -51,12 +52,15 @@ class ArtistAlbumsPresenter: BasePresenter {
         Dependency.injector.resolveArtistAlbumsWireframeActions()
     }()
     
-    var items: [AlbumVO]?
-    let artistBO: ArtistBO
+    var albumsVO: [AlbumVO]? = nil
+    let artistVO: ArtistSearchVO
     
-    required init(delegate: ArtistAlbumsPresenterDelegate, artistBO: ArtistBO) {
+    required init(delegate: ArtistAlbumsPresenterDelegate, artistBO: ArtistBO, albumsBO: [AlbumBO]?) {
         self.delegate = delegate
-        self.artistBO = artistBO
+        self.artistVO = ArtistSearchVO(with: artistBO)
+        if let albumsBO = albumsBO {
+            self.albumsVO = albumsBO.map{ AlbumVO(with: $0) }
+        }
         super.init()
     }
     
@@ -67,22 +71,26 @@ class ArtistAlbumsPresenter: BasePresenter {
 extension ArtistAlbumsPresenter: ArtistAlbumsPresenterActions {
     func viewDidLoad() {
         delegate.loadUI()
-        firstly { [weak self] () -> Promise<[AlbumBO]> in
-            guard let self = self else { throw PMKError.cancelled }
-            self.delegate.showCenterLoader()
-            return useCaseAlbumList.execute(id: self.artistBO.artistId)
-            }.map { (items: [AlbumBO]) in
-                items.map { AlbumVO(with: $0) }
-            }.done { [weak self] items in
+        if let albumsVO = albumsVO {
+            delegate.itemsLoaded(items: albumsVO)
+        } else {
+            firstly { [weak self] () -> Promise<[AlbumBO]> in
                 guard let self = self else { throw PMKError.cancelled }
-                self.items = items
-                return self.delegate.itemsLoaded(items: items)
-            }.catch { [weak self] error in
-                guard let self = self else { return }
-                return self.delegate.showError(error)
-            }.finally { [weak self] in
-                guard let self = self else { return }
-                return self.delegate.hideCenterLoader()
+                self.delegate.showCenterLoader()
+                return useCaseAlbumList.execute(id: self.artistVO.itemBO.artistId)
+                }.map { (items: [AlbumBO]) in
+                    items.map { AlbumVO(with: $0) }
+                }.done { [weak self] items in
+                    guard let self = self else { throw PMKError.cancelled }
+                    self.albumsVO = items
+                    self.delegate.itemsLoaded(items: items)
+                }.catch { [weak self] error in
+                    guard let self = self else { return }
+                    return self.delegate.showError(error)
+                }.finally { [weak self] in
+                    guard let self = self else { return }
+                    return self.delegate.hideCenterLoader()
+            }
         }
     }
     

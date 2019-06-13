@@ -21,3 +21,18 @@ extension UIView {
         }
     }
 }
+
+extension UILabel {
+    enum style {
+        typealias View = UILabel
+        
+        static var style1: Style<View> {
+            return Style<View> {
+                $0.backgroundColor = .blue
+            }
+        }
+        static func title(size: Float) -> Style<View> {
+            
+        }
+    }
+}

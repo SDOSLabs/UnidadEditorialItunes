@@ -18,7 +18,20 @@ class ArtistSearchVO {
         return itemBO.primaryGenreName
     }
     
+    var albums: [AlbumVO]? = nil
+    
     public init(with itemBO: ArtistBO) {
         self.itemBO = itemBO
     }
+}
+
+extension ArtistSearchVO: Equatable {
+    static func == (lhs: ArtistSearchVO, rhs: ArtistSearchVO) -> Bool {
+        if lhs.itemBO.artistId == rhs.itemBO.artistId {
+            return true
+        }
+        return false
+    }
+    
+    
 }

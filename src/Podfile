@@ -7,6 +7,8 @@ inhibit_all_warnings!
 
 def core_pods
 
+    pod 'ReachabilitySwift'
+    
     #Services
     pod 'SDOSPluggableApplicationDelegate'
 

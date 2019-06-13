@@ -46,6 +46,8 @@ protocol ArtistSearchPresenterActions: BasePresenterActions {
     func viewWillAppear()
     func goToArtist(withIndex index: Int)
     func search(term: String?)
+    
+    func loadAlbums(for artist: ArtistSearchVO) -> Promise<[AlbumVO]>
 }
 
 class ArtistSearchPresenter: BasePresenter {
@@ -55,6 +57,9 @@ class ArtistSearchPresenter: BasePresenter {
     }()
     private lazy var wireframe: ArtistSearchWireframeActions = {
         Dependency.injector.resolveArtistSearchWireframeActions()
+    }()
+    private lazy var useCaseAlbumList: UseCaseAlbumList = {
+        Dependency.injector.resolveUseCaseAlbumList()
     }()
     
     var items: [ArtistSearchVO]?
@@ -79,8 +84,8 @@ extension ArtistSearchPresenter: ArtistSearchPresenterActions {
     }
     
     func goToArtist(withIndex index: Int) {
-        if let navigationController = delegate.navigationController, let artistBO = items?[index].itemBO {
-                wireframe.goToView(from: navigationController, artistBO: artistBO)
+        if let navigationController = delegate.navigationController, let artistVO = items?[index] {
+            wireframe.goToView(from: navigationController, artistBO: artistVO.itemBO, albumsBO: artistVO.albums?.map({ $0.itemBO }))
         }
     }
     
@@ -111,6 +116,37 @@ extension ArtistSearchPresenter: ArtistSearchPresenterActions {
             }.finally { [weak self] in
                 guard let self = self else { return }
                 return self.delegate.hideCenterLoader()
+        }
+    }
+    
+    func loadAlbums(for artist: ArtistSearchVO) -> Promise<[AlbumVO]> {
+        if let albums = artist.albums {
+            return Promise<[AlbumVO]>{ seal in
+                seal.fulfill(albums)
+            }
+        } else {
+            return Promise<[AlbumVO]>{ seal in
+                firstly { () -> Promise<[AlbumBO]> in
+                    return useCaseAlbumList.execute(id: artist.itemBO.artistId)
+                    }.map { (items: [AlbumBO]) in
+                        items.map { AlbumVO(with: $0) }
+                    }.done { [weak self] albums in
+                        guard let self = self else { throw PMKError.cancelled }
+                        var count = 0
+                        if let items = self.items {
+                            for item in items {
+                                if item == artist {
+                                    item.albums = albums
+                                    break
+                                }
+                                count += 1
+                            }
+                        }
+                        seal.fulfill(albums)
+                    }.catch { error in
+                        seal.reject(error)
+                }
+            }
         }
     }
 }

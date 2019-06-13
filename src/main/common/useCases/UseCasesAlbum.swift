@@ -33,7 +33,7 @@ struct UseCaseAlbum {
         var request: Request?
         
         func execute(id: Int) -> Promise<[AlbumBO]> {
-            request?.cancel()
+//            request?.cancel()
             return firstly { [weak self] () -> Promise<[AlbumBO]> in
                 guard let self = self else { throw PMKError.cancelled }
                 let requestValue = repository.load(id: id)

@@ -17,7 +17,7 @@ import UIKit
  */
 
 protocol ArtistSearchWireframeActions: BaseWireframeActions {
-    func goToView(from navigationController: UINavigationController, artistBO: ArtistBO)
+    func goToView(from navigationController: UINavigationController, artistBO: ArtistBO, albumsBO: [AlbumBO]?)
 }
 
 class ArtistSearchWireframe: BaseWireframe {
@@ -25,7 +25,7 @@ class ArtistSearchWireframe: BaseWireframe {
 }
 
 extension ArtistSearchWireframe: ArtistSearchWireframeActions {
-    func goToView(from navigationController: UINavigationController, artistBO: ArtistBO) {
-        navigationController.pushViewController(Dependency.injector.resolveArtistAlbumsViewActions(artistBO: artistBO), animated: true)
+    func goToView(from navigationController: UINavigationController, artistBO: ArtistBO, albumsBO: [AlbumBO]?) {
+        navigationController.pushViewController(Dependency.injector.resolveArtistAlbumsViewActions(artistBO: artistBO, albumsBO: albumsBO), animated: true)
     }
 }

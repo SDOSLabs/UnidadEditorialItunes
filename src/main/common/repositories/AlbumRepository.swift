@@ -30,6 +30,15 @@ class AlbumRepository: BaseRepository {
 
 extension AlbumRepository: AlbumRepositoryActions {
     func load(id: Int) -> RequestValue<Promise<[AlbumBO]>> {
+        do {
+            try isConnected()
+        } catch {
+            let promise = Promise<[AlbumBO]> { seal in
+                seal.reject(error)
+            }
+            return RequestValue(request: nil, value: promise)
+        }
+        
         let params: [String] = [
             Constants.ws.paramKey.id + "=" + String(id),
             Constants.ws.paramKey.attribute + "=" + Constants.ws.paramValue.attributeAlbum,

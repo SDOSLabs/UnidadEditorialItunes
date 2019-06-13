@@ -10,8 +10,8 @@ import Foundation
 class AlbumVO {
     let itemBO: AlbumBO
     
-    var image: String {
-        return itemBO.image
+    var image: URL? {
+        return URL(string: itemBO.image)
     }
     var name: String {
         return itemBO.collectionName

@@ -7,5 +7,6 @@
 "name" = "Nombre...";
 "no_results" = "No Results";
 "no_results_term" = "No hemos encontrado nada por \"%@\"";
-"error_ws" = "Ha ocurrido un error durante la búsqueda";
+"error_ws" = "Ha ocurrido un error durante la búsqueda. Comprueba tu conexión a internet.";
 "text_empty_view" = "Introduce el nombre de un artista para obtener información";
+"no_albums" = "No hay albunes";

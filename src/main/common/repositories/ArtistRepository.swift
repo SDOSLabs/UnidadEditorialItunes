@@ -11,6 +11,7 @@ import PromiseKit
 import SDOSAlamofire
 import Alamofire
 import SwifterSwift
+import Reachability
 
 /*
  Dependency register JSON
@@ -31,6 +32,15 @@ class ArtistRepository: BaseRepository {
 
 extension ArtistRepository: ArtistRepositoryActions {
     func loadSearch(term: String) -> RequestValue<Promise<[ArtistBO]>> {
+        do {
+            try isConnected()
+        } catch {
+            let promise = Promise<[ArtistBO]> { seal in
+                seal.reject(error)
+            }
+            return RequestValue(request: nil, value: promise)
+        }
+        
         let params: [String] = [
             Constants.ws.paramKey.term + "=" + term.urlEncoded,
             Constants.ws.paramKey.attribute + "=" + Constants.ws.paramValue.attributeArtist,

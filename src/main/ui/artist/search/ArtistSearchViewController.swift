@@ -18,7 +18,7 @@ import SDOSLoader
  }
  */
 
-protocol ArtistSearchViewActions: UIViewController, BaseViewActions, ArtistSearchPresenterDelegate {
+protocol ArtistSearchViewActions: BaseViewActions, ArtistSearchPresenterDelegate {
     
 }
 
@@ -36,6 +36,8 @@ class ArtistSearchViewController: BaseViewController {
     @IBOutlet weak var viewEmpty: UIView!
     @IBOutlet weak var imgEmpty: UIImageView!
     @IBOutlet weak var lbEmpty: UILabel!
+    
+    var loaderObject: LoaderObject?
     //MARK: - Init
     
     required override init() {
@@ -51,6 +53,8 @@ class ArtistSearchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        registerCells()
+        
         //Last line
         self.presenter.viewDidLoad()
     }
@@ -62,6 +66,10 @@ class ArtistSearchViewController: BaseViewController {
     }
     
     //MARK: - Custom methods
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
 }
 
@@ -88,7 +96,7 @@ extension ArtistSearchViewController: ArtistSearchPresenterDelegate {
     }
     
     func showError(_ error: Error) {
-        lbTitleNoResults.text = L10n.errorWs
+        lbSubtitleNoResults.text = L10n.errorWs
         UIView.animate(withDuration: 0.3) {
             self.viewNoResults.alpha = 1
             self.tableView.alpha = 0
@@ -102,12 +110,17 @@ extension ArtistSearchViewController: ArtistSearchPresenterDelegate {
             self.tableView.alpha = 0
             self.viewEmpty.alpha = 0
         }
-        let loaderObject = LoaderManager.loader(loaderType: .indeterminateCircular(nil), inView: view, size: nil)
-        LoaderManager.showLoader(loaderObject)
+        loaderObject = LoaderManager.loader(loaderType: .indeterminateCircular(nil), inView: view, size: nil)
+        if let loaderObject = loaderObject {
+            LoaderManager.showLoader(loaderObject)
+        }
     }
     
     func hideCenterLoader() {
-        LoaderManager.hideLoaderOfView(view)
+        if let loaderObject = loaderObject {
+            LoaderManager.hideLoader(loaderObject)
+        }
+        loaderObject = nil
     }
     
     func loadSearchComponent() {
@@ -122,6 +135,7 @@ extension ArtistSearchViewController: ArtistSearchPresenterDelegate {
     }
     
     func showResults() {
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
         UIView.animate(withDuration: 0.3) {
             self.viewNoResults.alpha = 0
             self.tableView.alpha = 1
@@ -147,9 +161,20 @@ extension ArtistSearchViewController: ArtistSearchPresenterDelegate {
     }
     
     func configureNavigationBar() {
+        self.navigationController?.navigationBar.isTranslucent = false
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
-//        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.barTintColor = .charcoalGrey
+        self.navigationItem.searchController?.searchBar.barTintColor = .white
+        self.navigationItem.searchController?.searchBar.tintColor = .white
+
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+
+
     }
 }
 
@@ -161,16 +186,24 @@ extension ArtistSearchViewController: UITableViewDelegate {
 }
 
 extension ArtistSearchViewController: UITableViewDataSource {
+    
+    private func registerCells() {
+        self.tableView.register(UINib(nibName: String(describing: ArtistCell.self), bundle: nil), forCellReuseIdentifier: ArtistCell.identifier)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.items?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell.init()
+        var cellFinal = UITableViewCell.init()
         if let artist = presenter.items?[indexPath.row] {
-            cell.textLabel?.text = artist.name
+            if let cell = tableView.dequeueReusableCell(withIdentifier: ArtistCell.identifier, for: indexPath) as? ArtistCell {
+                cell.load(artistVO: artist, albums: presenter.loadAlbums(for: artist))
+                cellFinal = cell
+            }
         }
-        return cell
+        return cellFinal
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -186,6 +219,13 @@ extension ArtistSearchViewController: UITableViewDataSource {
 extension ArtistSearchViewController: UISearchBarDelegate {
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         presenter.search(term: searchBar.text)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = nil
+        if !searchBar.isFirstResponder {
+            presenter.search(term: searchBar.text)
+        }
     }
 }
 

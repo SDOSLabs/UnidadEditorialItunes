@@ -34,3 +34,7 @@ struct Constants {
         static let formatAlbum = "YYYY-MM-DD'T'HH:mm:ss'Z'"
     }
 }
+
+enum WSError: Error {
+    case noConnection
+}
