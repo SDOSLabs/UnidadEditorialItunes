@@ -17,11 +17,13 @@ class ArtistCell: UITableViewCell {
         Dependency.injector.resolveUseCaseAlbumList()
     }()
 
+    @IBOutlet weak var viewSeparator: UIView!
     @IBOutlet weak var lbName: UILabel!
     @IBOutlet weak var lbGenre: UILabel!
     @IBOutlet weak var imgArrow: UIImageView!
     
     
+    @IBOutlet weak var lbTitleAlbunes: UILabel!
     @IBOutlet weak var imgPlaceholderAlbum1: UIImageView!
     @IBOutlet weak var viewAlbum1: UIView!
     @IBOutlet weak var imgAlbum1: UIImageView!
@@ -48,6 +50,24 @@ class ArtistCell: UITableViewCell {
         imgPlaceholderAlbum2.image = Asset.placeholderList.image
         imgEmpty.image = Asset.placeholderNoAlbum.image
         lbEmpty.text = L10n.noAlbums
+        lbTitleAlbunes.text = L10n.disco
+        
+        UILabel.style.titleDark(size: 18.0).apply(to: lbName)
+        UILabel.style.titleBlue(size: 16.0).apply(to: lbGenre)
+        UILabel.style.titleDark(size: 12.0).apply(to: lbTitleAlbunes)
+        
+        UILabel.style.darkGrayBold(size: 14.0).apply(to: lbNameAlbum1)
+        UILabel.style.darkGrayBold(size: 14.0).apply(to: lbNameAlbum2)
+        
+        UILabel.style.grayRegular(size: 12.0).apply(to: lbYearAlbum1)
+        UILabel.style.grayRegular(size: 12.0).apply(to: lbYearAlbum2)
+        
+        UILabel.style.grayRegular(size: 14.0).apply(to: lbEmpty)
+        
+        UIImageView.style.roundCorners(8.0).apply(to: imgAlbum1)
+        UIImageView.style.roundCorners(8.0).apply(to: imgAlbum2)
+        
+        UIView.style.separator.apply(to: viewSeparator)
     }
     
     override func prepareForReuse() {
@@ -63,6 +83,7 @@ class ArtistCell: UITableViewCell {
         lbNameAlbum2.text = ""
         lbYearAlbum1.text = ""
         lbYearAlbum2.text = ""
+        lbTitleAlbunes.isHidden = true
         
         viewEmpty.isHidden = true
         
@@ -82,8 +103,8 @@ class ArtistCell: UITableViewCell {
         
         albums.done { albums in
             if self.artistVO == artistVO {
-                self.imgPlaceholderAlbum1.isHidden = true
                 if albums.indices.contains(0) {
+                    self.lbTitleAlbunes.isHidden = false
                     let album = albums[0]
                     self.viewAlbum1.isHidden = false
                     self.imgAlbum1.kf.setImage(with: album.image)
@@ -91,10 +112,7 @@ class ArtistCell: UITableViewCell {
                     self.lbYearAlbum1.text = album.date
                 } else {
                     self.viewAlbum1.isHidden = true
-                    self.viewEmpty.isHidden = false
                 }
-                
-                self.imgPlaceholderAlbum2.isHidden = true
                 if albums.indices.contains(1) {
                     let album = albums[1]
                     self.viewAlbum2.isHidden = false
@@ -104,6 +122,15 @@ class ArtistCell: UITableViewCell {
                 } else {
                     self.viewAlbum2.isHidden = true
                 }
+                
+                if albums.isEmpty {
+                    self.viewEmpty.isHidden = false
+                } else {
+                    self.viewEmpty.isHidden = true
+                }
+                
+                self.imgPlaceholderAlbum1.isHidden = true
+                self.imgPlaceholderAlbum2.isHidden = true
             } else {
                 print("NADA")
             }

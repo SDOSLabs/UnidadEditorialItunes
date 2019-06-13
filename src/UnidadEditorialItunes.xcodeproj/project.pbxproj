@@ -52,6 +52,10 @@
 		29BEE81922B253E300A7B52D /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BEE81722B253E300A7B52D /* AlbumCell.swift */; };
 		29BEE81A22B253E300A7B52D /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29BEE81822B253E300A7B52D /* AlbumCell.xib */; };
 		29BEE81D22B25F1A00A7B52D /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BEE81C22B25F1A00A7B52D /* NavigationController.swift */; };
+		29BEE82222B2684B00A7B52D /* Inter-UI-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 29BEE81E22B2684B00A7B52D /* Inter-UI-Regular.otf */; };
+		29BEE82322B2684B00A7B52D /* Inter-UI-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 29BEE81F22B2684B00A7B52D /* Inter-UI-SemiBold.otf */; };
+		29BEE82422B2684B00A7B52D /* Inter-UI-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 29BEE82022B2684B00A7B52D /* Inter-UI-Medium.otf */; };
+		29BEE82522B2684B00A7B52D /* Inter-UI-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 29BEE82122B2684B00A7B52D /* Inter-UI-Bold.otf */; };
 		29D35C9122363E8900F34C48 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29D35C9022363E8900F34C48 /* AppIcon.xcassets */; };
 		29D35C952236435100F34C48 /* Style+Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D35C942236435100F34C48 /* Style+Design.swift */; };
 		45C0B728BEE12080B4B5C1DC /* Pods_UnidadEditorialItunes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB2E5A82ED2DA5AAAB90AD2 /* Pods_UnidadEditorialItunes.framework */; };
@@ -118,6 +122,10 @@
 		29BEE81722B253E300A7B52D /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
 		29BEE81822B253E300A7B52D /* AlbumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
 		29BEE81C22B25F1A00A7B52D /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		29BEE81E22B2684B00A7B52D /* Inter-UI-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-UI-Regular.otf"; sourceTree = "<group>"; };
+		29BEE81F22B2684B00A7B52D /* Inter-UI-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-UI-SemiBold.otf"; sourceTree = "<group>"; };
+		29BEE82022B2684B00A7B52D /* Inter-UI-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-UI-Medium.otf"; sourceTree = "<group>"; };
+		29BEE82122B2684B00A7B52D /* Inter-UI-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-UI-Bold.otf"; sourceTree = "<group>"; };
 		29D35C9022363E8900F34C48 /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcon.xcassets; sourceTree = "<group>"; };
 		29D35C942236435100F34C48 /* Style+Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Style+Design.swift"; sourceTree = "<group>"; };
 		ADB2E5A82ED2DA5AAAB90AD2 /* Pods_UnidadEditorialItunes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UnidadEditorialItunes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -416,6 +424,10 @@
 		29B0F26A22491C3400947F62 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				29BEE82122B2684B00A7B52D /* Inter-UI-Bold.otf */,
+				29BEE82022B2684B00A7B52D /* Inter-UI-Medium.otf */,
+				29BEE81E22B2684B00A7B52D /* Inter-UI-Regular.otf */,
+				29BEE81F22B2684B00A7B52D /* Inter-UI-SemiBold.otf */,
 			);
 			path = fonts;
 			sourceTree = "<group>";
@@ -520,12 +532,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				29B0F27D224942BE00947F62 /* LaunchScreen.xib in Resources */,
+				29BEE82222B2684B00A7B52D /* Inter-UI-Regular.otf in Resources */,
 				29AA2B2C22B16AC60074391C /* ArtistAlbumsViewController.xib in Resources */,
 				2940E453223187690057986A /* Assets.xcassets in Resources */,
 				29AA2B1D22B169950074391C /* ArtistSearchViewController.xib in Resources */,
+				29BEE82322B2684B00A7B52D /* Inter-UI-SemiBold.otf in Resources */,
 				29AA2B4C22B17DD90074391C /* Localizable.strings in Resources */,
+				29BEE82522B2684B00A7B52D /* Inter-UI-Bold.otf in Resources */,
 				29D35C9122363E8900F34C48 /* AppIcon.xcassets in Resources */,
 				29BEE81A22B253E300A7B52D /* AlbumCell.xib in Resources */,
+				29BEE82422B2684B00A7B52D /* Inter-UI-Medium.otf in Resources */,
 				29AA2B5222B199970074391C /* ArtistCell.xib in Resources */,
 				29BB44302237FE6A00401682 /* Environments.bin in Resources */,
 			);

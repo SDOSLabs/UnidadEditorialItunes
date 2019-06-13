@@ -34,11 +34,21 @@ struct UseCaseAlbum {
         
         func execute(id: Int) -> Promise<[AlbumBO]> {
 //            request?.cancel()
-            return firstly { [weak self] () -> Promise<[AlbumBO]> in
-                guard let self = self else { throw PMKError.cancelled }
+            return Promise<[AlbumBO]> { seal in
                 let requestValue = repository.load(id: id)
                 self.request = requestValue.request
-                return requestValue.value
+                
+                requestValue.value.done{ albums in
+                    let sortedAlbunes = albums.sorted(by: { (a1, a2) -> Bool in
+                        let t1 = a1.releaseDate ?? Date.distantPast
+                        let t2 = a2.releaseDate ?? Date.distantPast
+                        return t1 > t2
+                    })
+                    seal.fulfill(sortedAlbunes)
+                    }.catch{ error in
+                        seal.reject(error)
+                }
+                
             }
         }
     }

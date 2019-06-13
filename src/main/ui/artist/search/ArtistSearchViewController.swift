@@ -84,6 +84,10 @@ extension ArtistSearchViewController: ArtistSearchPresenterDelegate {
         lbEmpty.text = L10n.textEmptyView
         imgEmpty.image = Asset.placeholder.image
         
+        UILabel.style.infoBold(size: 18.0).apply(to: lbTitleNoResults)
+        UILabel.style.infoRegular(size: 18.0).apply(to: lbSubtitleNoResults)
+        UILabel.style.infoRegular(size: 18.0).apply(to: lbEmpty)
+        
         viewNoResults.alpha = 0
         tableView.alpha = 0
         viewEmpty.alpha = 1
@@ -91,7 +95,6 @@ extension ArtistSearchViewController: ArtistSearchPresenterDelegate {
     }
     
     func itemsLoaded(items: [ArtistSearchVO]) {
-        print("Results: \(items.count) elements")
         tableView.reloadData()
     }
     

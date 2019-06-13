@@ -13,10 +13,22 @@ extension UIView {
     enum style {
         typealias View = UIView
         
-        ///Apply with the next line: UIView.style.style1.apply(to: <#T##view#>)
-        static var style1: Style<View> {
+        static var separator: Style<View> {
             return Style<View> {
-                $0.backgroundColor = .blue
+                $0.backgroundColor = .veryLightBlue
+            }
+        }
+    }
+}
+
+extension UIImageView {
+    enum style {
+        typealias View = UIImageView
+        
+        static func roundCorners(_ corner: Float) -> Style<View> {
+            return Style<View> {
+                $0.layer.cornerRadius = CGFloat(corner)
+                $0.clipsToBounds = true
             }
         }
     }
@@ -26,13 +38,53 @@ extension UILabel {
     enum style {
         typealias View = UILabel
         
-        static var style1: Style<View> {
+        static func titleDark(size: Float) -> Style<View> {
             return Style<View> {
-                $0.backgroundColor = .blue
+                $0.textColor = .evergreen
+                $0.font = FontFamily.InterUI.bold.font(size: CGFloat(size))
             }
         }
-        static func title(size: Float) -> Style<View> {
-            
+        
+        static func titleBlue(size: Float) -> Style<View> {
+            return Style<View> {
+                $0.textColor = .warmBlue
+                $0.font = FontFamily.InterUI.medium.font(size: CGFloat(size))
+            }
+        }
+        
+        static func darkGrayBold(size: Float) -> Style<View> {
+            return Style<View> {
+                $0.textColor = .evergreen
+                $0.font = FontFamily.InterUI.bold.font(size: CGFloat(size))
+            }
+        }
+        
+        static func grayRegular(size: Float) -> Style<View> {
+            return Style<View> {
+                $0.textColor = .blueGrey
+                $0.font = FontFamily.InterUI.regular.font(size: CGFloat(size))
+            }
+        }
+        
+        static func grayBold(size: Float) -> Style<View> {
+            return Style<View> {
+                $0.textColor = .blueGrey
+                $0.font = FontFamily.InterUI.bold.font(size: CGFloat(size))
+            }
+        }
+        
+        static func infoRegular(size: Float) -> Style<View> {
+            return Style<View> {
+                $0.textColor = .slate
+                $0.font = FontFamily.InterUI.regular.font(size: CGFloat(size))
+            }
+        }
+        
+        static func infoBold(size: Float) -> Style<View> {
+            return Style<View> {
+                $0.textColor = .slate
+                $0.font = FontFamily.InterUI.bold.font(size: CGFloat(size))
+            }
         }
     }
 }
