@@ -34,7 +34,6 @@ def core_pods
     pod 'SwiftGen'
     
     #Animations and loaders
-    pod 'SDOSHero'
     pod 'SDOSLoader'
     
     #Extensions

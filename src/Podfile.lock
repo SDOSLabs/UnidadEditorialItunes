@@ -2,7 +2,6 @@ PODS:
   - Alamofire (5.0.0-beta.6)
   - DGActivityIndicatorView (2.1.1)
   - FLEX (2.4.0)
-  - Hero (1.4.0)
   - IQKeyboardManagerSwift (6.3.0)
   - Kingfisher (5.5.0)
   - M13ProgressSuite (1.2.9)
@@ -40,11 +39,6 @@ PODS:
     - SDOSFLEX/FLEX (= 1.0.1)
   - SDOSFLEX/FLEX (1.0.1):
     - FLEX (~> 2.4)
-  - SDOSHero (3.0.0):
-    - Hero (~> 1.4)
-    - SDOSHero/Hero (= 3.0.0)
-  - SDOSHero/Hero (3.0.0):
-    - Hero (~> 1.4)
   - SDOSKeyedCodable (1.0.1):
     - SDOSKeyedCodable/KeyedCodable (= 1.0.1)
   - SDOSKeyedCodable/KeyedCodable (1.0.1)
@@ -103,7 +97,6 @@ DEPENDENCIES:
   - SDOSAlamofire
   - SDOSEnvironment
   - SDOSFLEX
-  - SDOSHero
   - SDOSLoader
   - SDOSPluggableApplicationDelegate
   - SDOSSwinject
@@ -116,7 +109,6 @@ SPEC REPOS:
     - Alamofire
     - DGActivityIndicatorView
     - FLEX
-    - Hero
     - IQKeyboardManagerSwift
     - Kingfisher
     - M13ProgressSuite
@@ -132,7 +124,6 @@ SPEC REPOS:
     - SDOSCustomLoader
     - SDOSEnvironment
     - SDOSFLEX
-    - SDOSHero
     - SDOSKeyedCodable
     - SDOSLoader
     - SDOSPluggableApplicationDelegate
@@ -144,7 +135,6 @@ SPEC CHECKSUMS:
   Alamofire: cd08a4402bd12cacd0c66f23fb12fec8d6b965e4
   DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
-  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
   Kingfisher: 6fe5e67a90fd335e49b0f5c075ff55ac5ebedd94
   M13ProgressSuite: ea9f7263e73e9215e6849dfa54e29ee0ad6a145c
@@ -156,7 +146,6 @@ SPEC CHECKSUMS:
   SDOSCustomLoader: 02d63e605816cc02129995f2b6cb6728c359c63f
   SDOSEnvironment: 757a0cf737bf6ec5f9e62c7ff317ddf4e1e15c21
   SDOSFLEX: 0977ddca0b7b7e306db963f920ac16e695b78293
-  SDOSHero: fa8e07b17fa041ddfa2410cb14056bfa6fbc5de9
   SDOSKeyedCodable: 2dcca3402fc78a08063578ee74f3ab1ea6bb4bc8
   SDOSLoader: 4ba5520db8533e09f66ab5abb2c46356ab41ef0d
   SDOSPluggableApplicationDelegate: e71614f426e6fdb75e579726e2eefcdd6174f6c1
@@ -167,6 +156,6 @@ SPEC CHECKSUMS:
   SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
   Swinject: b624462f47b635a64f89a60a247baa5fccec14e1
 
-PODFILE CHECKSUM: d3e632aeaa8fbba68dd81a87a259eddadd3d5c8d
+PODFILE CHECKSUM: d2e570fdd7e8985e763ef136824a185934d89c3b
 
 COCOAPODS: 1.5.3
