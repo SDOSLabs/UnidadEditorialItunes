@@ -42,6 +42,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<false/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -52,6 +54,15 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Inter-UI-Bold.otf</string>
+		<string>Inter-UI-Medium.otf</string>
+		<string>Inter-UI-Regular.otf</string>
+		<string>Inter-UI-SemiBold.otf</string>
 	</array>
 </dict>
 </plist>

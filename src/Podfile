@@ -7,50 +7,32 @@ inhibit_all_warnings!
 
 def core_pods
 
+    pod 'ReachabilitySwift'
+    
     #Services
     pod 'SDOSPluggableApplicationDelegate'
 
-    #Keyboard
-    pod 'IQKeyboardManagerSwift'
-
     #Images
     pod 'Kingfisher'
-    
-    #WS
-    pod 'SDOSAlamofire'
-    
-    #Database
-    #pod 'RealmWrapper'
     
     #Architecture
     pod 'SDOSVIPER'
     pod 'PromiseKit'
 	
     #Code Generation, dependency injection and environments variables
-    pod 'SDOSL10n'
     pod 'SDOSEnvironment'
     pod 'SDOSSwinject'
     pod 'SwiftGen'
     
     #Animations and loaders
-    pod 'SDOSHero'
     pod 'SDOSLoader'
     
     #Extensions
     pod 'SwifterSwift'
     
-    #Crash
-    pod 'Crashlytics'
-    
-    #Distribution
-    pod 'Fabric'
-    
-    #Analytics
-    pod 'SDOSFirebase'
-    
     #Debug
-    pod 'SDOSFLEX', :configurations => ['Debug', 'Preproduction']
-    pod 'FLEX', :configurations => ['Debug', 'Preproduction']
+    pod 'SDOSFLEX', :configurations => ['Debug']
+    pod 'FLEX', :configurations => ['Debug']
     
 end
 

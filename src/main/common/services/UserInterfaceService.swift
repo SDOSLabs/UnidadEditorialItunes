@@ -16,7 +16,7 @@ class UserInterfaceService: NSObject, ApplicationService {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = UIViewController() //TODO: Configure first ViewController
+        window.rootViewController = Dependency.injector.resolveNavigationController(rootViewController: Dependency.injector.resolveArtistSearchViewActions())
     
         window.makeKeyAndVisible()
         self.window = window
