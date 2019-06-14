@@ -1,0 +1,6 @@
+framework module SDOSFLEX {
+  umbrella header "SDOSFLEX-umbrella.h"
+
+  export *
+  module * { export * }
+}
