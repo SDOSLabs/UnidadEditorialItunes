@@ -19,7 +19,6 @@ struct Constants {
             static let attribute = "attribute"
             static let sort = "sort"
             static let media = "music"
-            static let lang = "lang"
             
         }
         

@@ -1,0 +1,14 @@
+//  Localizable.strings
+//
+//  Created by SDOS
+//
+
+"search_artist" = "Artist search";
+"name" = "Name...";
+"no_results" = "No results";
+"no_results_term" = "No results found for \"%@\"";
+"error_ws" = "An error occurred while searching. Please, check your internet connection.";
+"text_empty_view" = "Enter an artist's name to get the information";
+"no_albums" = "No albums";
+"disco" = "Discography";
+"albums" = "Albums";

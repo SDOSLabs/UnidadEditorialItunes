@@ -2,6 +2,7 @@
 
 - La aplicación debe compilarsre con Xcode 10.2
 - Se han subido las dependencias ya que se usan librerías privadas que no están en el repositorio público de cocoapods
+- La aplicación está internazionalizada en español e inglés
 
 ================================================
 
