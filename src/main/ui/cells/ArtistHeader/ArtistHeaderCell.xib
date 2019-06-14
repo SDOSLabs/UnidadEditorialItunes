@@ -20,16 +20,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JxF-WZ-jwc">
-                        <rect key="frame" x="20" y="10" width="332" height="85.5"/>
+                        <rect key="frame" x="20" y="10" width="332" height="75.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYH-aw-Nal">
-                                <rect key="frame" x="0.0" y="0.0" width="42" height="55"/>
+                                <rect key="frame" x="0.0" y="0.0" width="42" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ou-3P-6ZA">
-                                <rect key="frame" x="0.0" y="65" width="42" height="20.5"/>
+                                <rect key="frame" x="0.0" y="55" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -47,7 +47,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kls-rA-7QK">
-                        <rect key="frame" x="0.0" y="105.5" width="372" height="4"/>
+                        <rect key="frame" x="0.0" y="95.5" width="372" height="4"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="4" id="MrM-Ga-lDc"/>
@@ -55,11 +55,11 @@
                     </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="kls-rA-7QK" firstAttribute="top" secondItem="JxF-WZ-jwc" secondAttribute="bottom" constant="10" id="9vX-Mm-SOp"/>
                     <constraint firstAttribute="trailing" secondItem="kls-rA-7QK" secondAttribute="trailing" id="DNS-TT-GDs"/>
                     <constraint firstItem="JxF-WZ-jwc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="GUa-Xc-GQI"/>
                     <constraint firstItem="JxF-WZ-jwc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="jGs-fJ-dgZ"/>
-                    <constraint firstAttribute="bottom" secondItem="JxF-WZ-jwc" secondAttribute="bottom" constant="14" id="k3d-BI-5Nd"/>
-                    <constraint firstAttribute="bottom" secondItem="kls-rA-7QK" secondAttribute="bottom" id="s5r-2G-yG8"/>
+                    <constraint firstAttribute="bottom" secondItem="kls-rA-7QK" secondAttribute="bottom" constant="10" id="s5r-2G-yG8"/>
                     <constraint firstItem="kls-rA-7QK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="y1B-z3-sPo"/>
                     <constraint firstAttribute="trailingMargin" secondItem="JxF-WZ-jwc" secondAttribute="trailing" id="zFR-2y-wGX"/>
                 </constraints>

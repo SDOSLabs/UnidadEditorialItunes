@@ -64,7 +64,7 @@
                     <viewLayoutGuide key="safeArea" id="a6P-MD-w2t"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T6H-6K-ntR">
-                    <rect key="frame" x="62" y="329" width="290" height="116.5"/>
+                    <rect key="frame" x="62" y="212.5" width="290" height="116.5"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uOd-Lu-cVV">
                             <rect key="frame" x="64" y="0.0" width="162" height="72"/>
@@ -98,7 +98,7 @@
                 <constraint firstItem="BUj-AG-gZu" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="G8G-dX-FuH"/>
                 <constraint firstItem="T6H-6K-ntR" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Jjk-dB-4pS"/>
                 <constraint firstAttribute="bottom" secondItem="BUj-AG-gZu" secondAttribute="bottom" id="JyQ-6R-ltA"/>
-                <constraint firstItem="T6H-6K-ntR" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="LqT-ha-zgl"/>
+                <constraint firstItem="T6H-6K-ntR" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" multiplier="0.7" id="LqT-ha-zgl"/>
                 <constraint firstItem="DJ8-cA-W28" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" multiplier="0.7" id="MOO-ev-rRh"/>
                 <constraint firstItem="DJ8-cA-W28" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.7" id="Mq6-sC-1sI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BUj-AG-gZu" secondAttribute="trailing" id="RGd-yT-txo"/>
