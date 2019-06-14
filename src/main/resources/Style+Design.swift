@@ -88,3 +88,46 @@ extension UILabel {
         }
     }
 }
+
+extension UINavigationBar {
+    enum style {
+        typealias View = UINavigationBar
+        
+        static var general: Style<View> {
+            return Style<View> {
+                $0.tintColor = .white
+                $0.barTintColor = .charcoalGrey
+                $0.isTranslucent = false
+                $0.prefersLargeTitles = true
+                $0.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+                $0.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+                $0.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+                UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).textColor = UIColor.white
+                
+                for view in $0.subviews {
+                    let subviews = view.subviews
+                    if subviews.count > 0, let label = subviews[0] as? UILabel {
+                        label.textColor = UIColor.white
+                    }
+                }
+            }
+        }
+    }
+}
+
+typealias StyleSDOS = Style
+
+extension UISearchBar {
+    enum style {
+        typealias View = UISearchBar
+        
+        static var general: StyleSDOS<View> {
+            return StyleSDOS<View> {
+                $0.barTintColor = .white
+                $0.tintColor = .white
+                
+                UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            }
+        }
+    }
+}

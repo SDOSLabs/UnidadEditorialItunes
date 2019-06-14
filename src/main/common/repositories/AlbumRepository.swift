@@ -8,8 +8,6 @@
 import Foundation
 import SDOSVIPER
 import PromiseKit
-import SDOSAlamofire
-import Alamofire
 
 /*
  Dependency register JSON
@@ -25,20 +23,11 @@ protocol AlbumRepositoryActions: BaseRepositoryActions {
 }
 
 class AlbumRepository: BaseRepository {
-    private lazy var session = GenericSession()
+    private lazy var session = WebServiceSession.init()
 }
 
 extension AlbumRepository: AlbumRepositoryActions {
     func load(id: Int) -> RequestValue<Promise<[AlbumBO]>> {
-        do {
-            try isConnected()
-        } catch {
-            let promise = Promise<[AlbumBO]> { seal in
-                seal.reject(error)
-            }
-            return RequestValue(request: nil, value: promise)
-        }
-        
         let params: [String] = [
             Constants.ws.paramKey.id + "=" + String(id),
             Constants.ws.paramKey.attribute + "=" + Constants.ws.paramValue.attributeAlbum,
@@ -47,15 +36,14 @@ extension AlbumRepository: AlbumRepositoryActions {
         ]
         
         let url = Environment.urlBase + Constants.ws.lookup + "?" + params.joined(separator: "&")
-        let responseSerializer = SDOSJSONResponseSerializer<[AlbumDTO], ErrorDTO>(jsonResponseRootKey: "results")
-        let request = session.request(url, method: .get, parameters: nil)
         
-        let promise = Promise<[AlbumDTO]> { seal in
-            request.validate().responseSDOSDecodable(responseSerializer: responseSerializer) {
-                (dataResponse: DataResponse<[AlbumDTO]>) in
-                switch dataResponse.result {
-                case .success(let items):
-                    seal.fulfill(items)
+        var request: URLSessionTask?
+        let promise: Promise<[AlbumBO]>
+        promise = Promise<[AlbumDTO]> { seal in
+            request = session.call(with: url, type: ResultDTO<AlbumDTO>.self) { result in
+                switch result {
+                case .success(let success):
+                    seal.fulfill(success.results)
                 case .failure(let error):
                     seal.reject(error)
                 }

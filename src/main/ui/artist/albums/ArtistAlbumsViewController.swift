@@ -54,43 +54,16 @@ class ArtistAlbumsViewController: BaseViewController {
         presenter.viewWillAppear()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        //FIX problem with promt
+        UINavigationBar.style.general.apply(to: self.navigationController?.navigationBar)
+    }
+    
     //MARK: - Custom methods
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
-    }
-
-    private func setTitle(title: String, subtitle: String?) -> UIView {
-        let titleLabel = UILabel(frame: CGRect(x: 0, y: -2, width: 0, height: 0))
-        
-        titleLabel.backgroundColor = UIColor.clear
-        titleLabel.textColor = UIColor.white
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
-        titleLabel.text = title
-        titleLabel.sizeToFit()
-        
-        let subtitleLabel = UILabel(frame: CGRect(x: 0, y: 18, width: 0, height: 0))
-        subtitleLabel.backgroundColor = UIColor.clear
-        subtitleLabel.textColor = UIColor.white
-        subtitleLabel.font = UIFont.systemFont(ofSize: 12)
-        subtitleLabel.text = subtitle
-        subtitleLabel.sizeToFit()
-        
-        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: max(titleLabel.frame.size.width, subtitleLabel.frame.size.width), height: 30))
-        titleView.addSubview(titleLabel)
-        titleView.addSubview(subtitleLabel)
-        
-        let widthDiff = subtitleLabel.frame.size.width - titleLabel.frame.size.width
-        
-        if widthDiff < 0 {
-            let newX = widthDiff / 2
-            subtitleLabel.frame.origin.x = abs(newX)
-        } else {
-            let newX = widthDiff / 2
-            titleLabel.frame.origin.x = newX
-        }
-        
-        return titleView
     }
 }
 
@@ -100,18 +73,18 @@ extension ArtistAlbumsViewController: ArtistAlbumsViewActions {
 
 extension ArtistAlbumsViewController: ArtistAlbumsPresenterDelegate {
     func loadUI() {
-        navigationItem.titleView = setTitle(title: presenter.artistVO.name, subtitle: presenter.artistVO.genre)
+        navigationItem.title = L10n.albums
         
         self.navigationController?.navigationBar.backIndicatorImage = Asset.chevronLeft.image
         let backButtonItem = UIBarButtonItem(image: Asset.chevronLeft.image, style: .plain, target: self.navigationController, action: #selector(UINavigationController.popViewController(animated:)))
         backButtonItem.title = nil
         navigationItem.leftBarButtonItem = backButtonItem
         navigationController?.interactivePopGestureRecognizer?.delegate = self
-
-
+        
+        UINavigationBar.style.general.apply(to: self.navigationController?.navigationBar)
     }
     
-    func itemsLoaded(items: [AlbumVO]) {
+    func itemsLoaded(item: AlbumDetailVO) {
         tableView.reloadData()
     }
     
@@ -130,9 +103,6 @@ extension ArtistAlbumsViewController: ArtistAlbumsPresenterDelegate {
     
     func configureNavigationBar() {
         self.navigationItem.largeTitleDisplayMode = .never
-        self.navigationController?.navigationBar.tintColor = .white
-        self.navigationController?.navigationBar.barTintColor = .charcoalGrey
-//        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
 }
 
@@ -143,15 +113,23 @@ extension ArtistAlbumsViewController: UITableViewDataSource {
     
     private func registerCells() {
         self.tableView.register(UINib(nibName: String(describing: AlbumCell.self), bundle: nil), forCellReuseIdentifier: AlbumCell.identifier)
+        self.tableView.register(UINib(nibName: String(describing: ArtistHeaderCell.self), bundle: nil), forCellReuseIdentifier: ArtistHeaderCell.identifier)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.albumsVO?.count ?? 0
+        return presenter.albumDetailVO.content.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cellFinal = UITableViewCell.init()
-        if let album = presenter.albumsVO?[indexPath.row] {
+        var item = presenter.albumDetailVO.content[indexPath.row]
+        switch item {
+        case .artist(let artist):
+            if let cell = tableView.dequeueReusableCell(withIdentifier: ArtistHeaderCell.identifier, for: indexPath) as? ArtistHeaderCell {
+                cell.load(artistVO: artist)
+                cellFinal = cell
+            }
+        case .album(let album):
             if let cell = tableView.dequeueReusableCell(withIdentifier: AlbumCell.identifier, for: indexPath) as? AlbumCell {
                 cell.load(album: album)
                 cellFinal = cell

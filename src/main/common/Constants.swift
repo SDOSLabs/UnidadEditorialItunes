@@ -37,4 +37,7 @@ struct Constants {
 
 enum WSError: Error {
     case noConnection
+    case noUrl
+    case incorrectHTTPStatusCode
+    case noContent
 }

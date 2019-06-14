@@ -18,9 +18,6 @@ def core_pods
     #Images
     pod 'Kingfisher'
     
-    #WS
-    pod 'SDOSAlamofire'
-    
     #Database
     #pod 'RealmWrapper'
     

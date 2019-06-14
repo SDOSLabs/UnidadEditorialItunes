@@ -7,21 +7,9 @@
 
 import Foundation
 import SDOSVIPER
-import Reachability
 
 @objc class BaseRepository: VIPERGenericObject {
-    func isConnected() throws {
-        let reachability = Reachability()!
-        
-        do {
-            try reachability.startNotifier()
-            if reachability.connection == .none {
-                throw WSError.noConnection
-            }
-        } catch {
-            throw error
-        }
-    }
+    
 }
 
 @objc class BaseInteractor : VIPERGenericObject {

@@ -7,8 +7,6 @@
 
 import Foundation
 import PromiseKit
-import SDOSAlamofire
-import Alamofire
 
 /*
  Dependency register JSON
@@ -30,7 +28,7 @@ struct UseCaseArtist {
         private lazy var repository: ArtistRepositoryActions = {
             return Dependency.injector.resolveArtistRepositoryActions()
         }()
-        var request: Request?
+        var request: URLSessionTask?
         
         func execute(term: String) -> Promise<[ArtistBO]> {
             request?.cancel()

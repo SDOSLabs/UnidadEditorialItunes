@@ -8,8 +8,6 @@
 import Foundation
 import SDOSVIPER
 import PromiseKit
-import SDOSAlamofire
-import Alamofire
 import SwifterSwift
 import Reachability
 
@@ -27,20 +25,11 @@ protocol ArtistRepositoryActions: BaseRepositoryActions {
 }
 
 class ArtistRepository: BaseRepository {
-    private lazy var session = GenericSession()
+    private lazy var session = WebServiceSession.init()
 }
 
 extension ArtistRepository: ArtistRepositoryActions {
     func loadSearch(term: String) -> RequestValue<Promise<[ArtistBO]>> {
-        do {
-            try isConnected()
-        } catch {
-            let promise = Promise<[ArtistBO]> { seal in
-                seal.reject(error)
-            }
-            return RequestValue(request: nil, value: promise)
-        }
-        
         let params: [String] = [
             Constants.ws.paramKey.term + "=" + term.urlEncoded,
             Constants.ws.paramKey.attribute + "=" + Constants.ws.paramValue.attributeArtist,
@@ -48,15 +37,13 @@ extension ArtistRepository: ArtistRepositoryActions {
         ]
         
         let url = Environment.urlBase + Constants.ws.search + "?" + params.joined(separator: "&")
-        let responseSerializer = SDOSJSONResponseSerializer<[ArtistDTO], ErrorDTO>(jsonResponseRootKey: "results")
-        let request = session.request(url, method: .get, parameters: nil)
-        
-        let promise = Promise<[ArtistDTO]> { seal in
-            request.validate().responseSDOSDecodable(responseSerializer: responseSerializer) {
-                (dataResponse: DataResponse<[ArtistDTO]>) in
-                switch dataResponse.result {
-                case .success(let items):
-                    seal.fulfill(items)
+        var request: URLSessionTask?
+        let promise: Promise<[ArtistBO]>
+        promise = Promise<[ArtistDTO]> { seal in
+            request = session.call(with: url, type: ResultDTO<ArtistDTO>.self) { result in
+                switch result {
+                case .success(let success):
+                    seal.fulfill(success.results)
                 case .failure(let error):
                     seal.reject(error)
                 }

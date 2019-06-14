@@ -14,8 +14,8 @@ class ArtistSearchVO {
         return itemBO.artistName
     }
     
-    var genre: String? {
-        return itemBO.primaryGenreName
+    var genre: String {
+        return itemBO.primaryGenreName ?? "-"
     }
     
     var albums: [AlbumVO]? = nil

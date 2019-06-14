@@ -1,5 +1,4 @@
 PODS:
-  - Alamofire (5.0.0-beta.6)
   - DGActivityIndicatorView (2.1.1)
   - FLEX (2.4.0)
   - IQKeyboardManagerSwift (6.3.0)
@@ -17,15 +16,6 @@ PODS:
     - PromiseKit/CorePromise
   - ReachabilitySwift (4.3.1)
   - RNCryptor (5.1.0)
-  - SDOSAlamofire (0.9.7):
-    - Alamofire (= 5.0.0-beta.6)
-    - SDOSAlamofire/src (= 0.9.7)
-    - SDOSKeyedCodable (~> 1.0.0)
-    - SDOSSwiftExtension
-  - SDOSAlamofire/src (0.9.7):
-    - Alamofire (= 5.0.0-beta.6)
-    - SDOSKeyedCodable (~> 1.0.0)
-    - SDOSSwiftExtension
   - SDOSCustomLoader (1.0.1):
     - SDOSCustomLoader/CustomLoader (= 1.0.1)
   - SDOSCustomLoader/CustomLoader (1.0.1)
@@ -39,9 +29,6 @@ PODS:
     - SDOSFLEX/FLEX (= 1.0.1)
   - SDOSFLEX/FLEX (1.0.1):
     - FLEX (~> 2.4)
-  - SDOSKeyedCodable (1.0.1):
-    - SDOSKeyedCodable/KeyedCodable (= 1.0.1)
-  - SDOSKeyedCodable/KeyedCodable (1.0.1)
   - SDOSLoader (3.0.1):
     - DGActivityIndicatorView (~> 2.1)
     - M13ProgressSuite (~> 1.2)
@@ -94,7 +81,6 @@ DEPENDENCIES:
   - Kingfisher
   - PromiseKit
   - ReachabilitySwift
-  - SDOSAlamofire
   - SDOSEnvironment
   - SDOSFLEX
   - SDOSLoader
@@ -106,7 +92,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Alamofire
     - DGActivityIndicatorView
     - FLEX
     - IQKeyboardManagerSwift
@@ -120,11 +105,9 @@ SPEC REPOS:
     - SwiftGen
     - Swinject
   https://svrgitpub.sdos.es/iOS/cocoapods-specs.git:
-    - SDOSAlamofire
     - SDOSCustomLoader
     - SDOSEnvironment
     - SDOSFLEX
-    - SDOSKeyedCodable
     - SDOSLoader
     - SDOSPluggableApplicationDelegate
     - SDOSSwiftExtension
@@ -132,7 +115,6 @@ SPEC REPOS:
     - SDOSVIPER
 
 SPEC CHECKSUMS:
-  Alamofire: cd08a4402bd12cacd0c66f23fb12fec8d6b965e4
   DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
@@ -142,11 +124,9 @@ SPEC CHECKSUMS:
   PromiseKit: 51794a832647e7b819336dc2279039ce9f1cc49b
   ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
   RNCryptor: a369134686cd2ad391323cc856b62e591193ba79
-  SDOSAlamofire: 9ff850816613a5395515dbb7cce9147187366f4e
   SDOSCustomLoader: 02d63e605816cc02129995f2b6cb6728c359c63f
   SDOSEnvironment: 757a0cf737bf6ec5f9e62c7ff317ddf4e1e15c21
   SDOSFLEX: 0977ddca0b7b7e306db963f920ac16e695b78293
-  SDOSKeyedCodable: 2dcca3402fc78a08063578ee74f3ab1ea6bb4bc8
   SDOSLoader: 4ba5520db8533e09f66ab5abb2c46356ab41ef0d
   SDOSPluggableApplicationDelegate: e71614f426e6fdb75e579726e2eefcdd6174f6c1
   SDOSSwiftExtension: 224365077fc758cbf1850e352d9227d91ac0c317
@@ -156,6 +136,6 @@ SPEC CHECKSUMS:
   SwiftGen: f872ca75cbd17bf7103c17f13dcfa0d9a15667b0
   Swinject: b624462f47b635a64f89a60a247baa5fccec14e1
 
-PODFILE CHECKSUM: d2e570fdd7e8985e763ef136824a185934d89c3b
+PODFILE CHECKSUM: d03b5cbae9f2e2fe4be0a493756f8b56740c1897
 
 COCOAPODS: 1.5.3

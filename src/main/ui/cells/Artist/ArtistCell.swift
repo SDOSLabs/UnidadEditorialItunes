@@ -99,7 +99,7 @@ class ArtistCell: UITableViewCell {
         self.artistVO = artistVO
         
         lbName.text = artistVO.name
-        lbGenre.text = artistVO.genre ?? "-"
+        lbGenre.text = artistVO.genre
         
         albums.done { albums in
             if self.artistVO == artistVO {

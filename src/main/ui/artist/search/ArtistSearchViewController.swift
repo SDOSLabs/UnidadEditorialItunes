@@ -91,6 +91,8 @@ extension ArtistSearchViewController: ArtistSearchPresenterDelegate {
         viewNoResults.alpha = 0
         tableView.alpha = 0
         viewEmpty.alpha = 1
+        
+        UINavigationBar.style.general.apply(to: self.navigationController?.navigationBar)
 
     }
     
@@ -108,6 +110,7 @@ extension ArtistSearchViewController: ArtistSearchPresenterDelegate {
     }
     
     func showCenterLoader() {
+        hideCenterLoader()
         UIView.animate(withDuration: 0.3) {
             self.viewNoResults.alpha = 0
             self.tableView.alpha = 0
@@ -135,6 +138,8 @@ extension ArtistSearchViewController: ArtistSearchPresenterDelegate {
         navigationItem.searchController?.hidesNavigationBarDuringPresentation = false
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchResultsUpdater = self
+        
+        UISearchBar.style.general.apply(to: self.navigationItem.searchController?.searchBar)
     }
     
     func showResults() {
@@ -164,20 +169,7 @@ extension ArtistSearchViewController: ArtistSearchPresenterDelegate {
     }
     
     func configureNavigationBar() {
-        self.navigationController?.navigationBar.isTranslucent = false
         self.navigationItem.largeTitleDisplayMode = .always
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.tintColor = .white
-        self.navigationController?.navigationBar.barTintColor = .charcoalGrey
-        self.navigationItem.searchController?.searchBar.barTintColor = .white
-        self.navigationItem.searchController?.searchBar.tintColor = .white
-
-        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-
-
     }
 }
 

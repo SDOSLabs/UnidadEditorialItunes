@@ -5,24 +5,41 @@
 //  Archivo creado usando la plantilla VIPER por SDOS http://www.sdos.es/
 //
 
-import SDOSAlamofire
-import SDOSKeyedCodable
+import Foundation
 
-struct AlbumDTO: GenericDTO {
+struct AlbumDTO: Decodable {
     var wrapperType: WrapperType = .unknown
     var collectionName: String = ""
     var image: String = ""
     var releaseDate: String = ""
     
-    mutating func map(map: KeyMap) throws {
-        try? wrapperType <<- map["wrapperType"]
-        try? collectionName <-> map["collectionName"]
-        try? image <-> map["artworkUrl100"]
-        try? releaseDate <-> map["releaseDate"]
+    private enum CodingKeys: String, CodingKey {
+        case wrapperType
+        case collectionName
+        case followers
+        case image = "artworkUrl100"
+        case releaseDate
+        
     }
     
     init(from decoder: Decoder) throws {
-        try KeyedDecoder(with: decoder).decode(to: &self)
+        let container = try decoder.container(keyedBy: CodingKeys.self) // defining our (keyed) container
+        let wrapperType: String = try container.decode(String.self, forKey: .wrapperType)
+        if let wrapperType = WrapperType.init(rawValue: wrapperType) {
+            self.wrapperType = wrapperType
+        }
+        let collectionName = try? container.decode(String.self, forKey: .collectionName)
+        if let collectionName = collectionName {
+            self.collectionName = collectionName
+        }
+        let image = try? container.decode(String.self, forKey: .image)
+        if let image = image {
+            self.image = image
+        }
+        let releaseDate = try? container.decode(String.self, forKey: .releaseDate)
+        if let releaseDate = releaseDate {
+            self.releaseDate = releaseDate
+        }
     }
 }
 
