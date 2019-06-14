@@ -2,13 +2,11 @@
     "config": {
         "name": null
     },
-    "headers": [
-        "typealias NavigationController = UINavigationController"
-    ],
+    "headers": null,
     "body": [
         {
             "dependencyName": "NavigationController",
-            "className": "UINavigationController",
+            "className": "NavigationController",
             "name": null,
             "scope": null,
             "arguments": [
@@ -17,5 +15,63 @@
                     "type": "UIViewController"
                 }
             ]
-        }]
+        }, {
+            "dependencyName": "ArtistRepositoryActions",
+            "className": "ArtistRepository"
+        }, {
+            "dependencyName": "UseCaseArtistSearch",
+            "className": "UseCaseArtist.Search"
+        }, {
+            "dependencyName": "ArtistSearchPresenterActions",
+            "className": "ArtistSearchPresenter",
+            "arguments": [
+                {
+                    "name": "delegate",
+                    "type": "ArtistSearchPresenterDelegate"
+                }
+            ]
+        }, {
+            "dependencyName": "ArtistSearchViewActions",
+            "className": "ArtistSearchViewController"
+        }, {
+            "dependencyName": "ArtistSearchWireframeActions",
+            "className": "ArtistSearchWireframe"
+        }, {
+            "dependencyName": "AlbumRepositoryActions",
+            "className": "AlbumRepository"
+        }, {
+            "dependencyName": "UseCaseAlbumList",
+            "className": "UseCaseAlbum.List"
+        }, {
+            "dependencyName": "ArtistAlbumsPresenterActions",
+            "className": "ArtistAlbumsPresenter",
+            "arguments": [
+                {
+                    "name": "delegate",
+                    "type": "ArtistAlbumsPresenterDelegate"
+                }, {
+                    "name": "artistBO",
+                    "type": "ArtistBO"
+                }, {
+                    "name": "albumsBO",
+                    "type": "[AlbumBO]?"
+                }
+            ]
+        }, {
+            "dependencyName": "ArtistAlbumsViewActions",
+            "className": "ArtistAlbumsViewController",
+            "arguments": [
+                {
+                    "name": "artistBO",
+                    "type": "ArtistBO"
+                }, {
+                    "name": "albumsBO",
+                    "type": "[AlbumBO]?"
+                }
+            ]
+        }, {
+            "dependencyName": "ArtistAlbumsWireframeActions",
+            "className": "ArtistAlbumsWireframe"
+        }
+    ]
 }

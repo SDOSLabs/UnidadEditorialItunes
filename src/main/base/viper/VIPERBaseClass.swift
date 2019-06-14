@@ -7,7 +7,6 @@
 
 import Foundation
 import SDOSVIPER
-import SDOSFirebase
 
 @objc class BaseRepository: VIPERGenericObject {
     
@@ -22,10 +21,7 @@ import SDOSFirebase
 }
 
 @objc class BaseViewController : VIPERGenericViewController {
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        setFirebaseScreenName(name: firebaseScreenName())
-    }
+    
 }
 
 @objc class BaseWireframe: VIPERGenericObject {
