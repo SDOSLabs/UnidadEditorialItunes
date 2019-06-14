@@ -122,7 +122,7 @@ extension ArtistAlbumsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cellFinal = UITableViewCell.init()
-        var item = presenter.albumDetailVO.content[indexPath.row]
+        let item = presenter.albumDetailVO.content[indexPath.row]
         switch item {
         case .artist(let artist):
             if let cell = tableView.dequeueReusableCell(withIdentifier: ArtistHeaderCell.identifier, for: indexPath) as? ArtistHeaderCell {

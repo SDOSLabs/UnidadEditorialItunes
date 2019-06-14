@@ -18,7 +18,6 @@
 		296D911F22646E8500380A68 /* Fonts.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296D911A22646E8500380A68 /* Fonts.generated.swift */; };
 		296D912022646E8500380A68 /* Strings.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296D911B22646E8500380A68 /* Strings.generated.swift */; };
 		296D912122646E8500380A68 /* Images.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296D911C22646E8500380A68 /* Images.generated.swift */; };
-		298C9FC52255F40600A90652 /* KeyboardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C9FBF2255F40600A90652 /* KeyboardService.swift */; };
 		298C9FC62255F40600A90652 /* EnviromentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C9FC02255F40600A90652 /* EnviromentService.swift */; };
 		298C9FC72255F40600A90652 /* FLEXService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C9FC12255F40600A90652 /* FLEXService.swift */; };
 		298C9FC82255F40600A90652 /* UserInterfaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298C9FC22255F40600A90652 /* UserInterfaceService.swift */; };
@@ -90,7 +89,6 @@
 		296D9124226487C600380A68 /* XcodeVersions.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = XcodeVersions.sh; sourceTree = "<group>"; };
 		296D91252264880200380A68 /* GenerateWarnings.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = GenerateWarnings.sh; sourceTree = "<group>"; };
 		296D91262264885300380A68 /* Fabric.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Fabric.sh; sourceTree = "<group>"; };
-		298C9FBF2255F40600A90652 /* KeyboardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardService.swift; sourceTree = "<group>"; };
 		298C9FC02255F40600A90652 /* EnviromentService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnviromentService.swift; sourceTree = "<group>"; };
 		298C9FC12255F40600A90652 /* FLEXService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FLEXService.swift; sourceTree = "<group>"; };
 		298C9FC22255F40600A90652 /* UserInterfaceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInterfaceService.swift; sourceTree = "<group>"; };
@@ -350,7 +348,6 @@
 			children = (
 				298C9FC02255F40600A90652 /* EnviromentService.swift */,
 				298C9FC12255F40600A90652 /* FLEXService.swift */,
-				298C9FBF2255F40600A90652 /* KeyboardService.swift */,
 				298C9FC22255F40600A90652 /* UserInterfaceService.swift */,
 			);
 			path = services;
@@ -582,7 +579,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-UnidadEditorialItunes/Pods-UnidadEditorialItunes-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DGActivityIndicatorView/DGActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/FLEX/FLEX.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/M13ProgressSuite/M13ProgressSuite.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
@@ -605,7 +601,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DGActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLEX.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/M13ProgressSuite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
@@ -769,7 +764,6 @@
 				29D35C952236435100F34C48 /* Style+Design.swift in Sources */,
 				2905B727223277DA007206DE /* VIPERBaseProtocol.swift in Sources */,
 				29AA2B1B22B169950074391C /* ArtistSearchPresenter.swift in Sources */,
-				298C9FC52255F40600A90652 /* KeyboardService.swift in Sources */,
 				298C9FC82255F40600A90652 /* UserInterfaceService.swift in Sources */,
 				29AA2B0C22B169500074391C /* UseCasesArtist.swift in Sources */,
 				29AA2B2A22B16AC60074391C /* ArtistAlbumsPresenter.swift in Sources */,

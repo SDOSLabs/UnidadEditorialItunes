@@ -18,6 +18,8 @@ struct Constants {
             static let entity = "entity"
             static let attribute = "attribute"
             static let sort = "sort"
+            static let media = "music"
+            static let lang = "lang"
             
         }
         
@@ -27,6 +29,7 @@ struct Constants {
             static let sortRecent = "recent"
             static let entityArtist = "allArtist"
             static let attributeArtist = "allArtistTerm"
+            static let media = "music"
         }
     }
     

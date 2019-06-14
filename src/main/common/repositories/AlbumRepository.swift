@@ -8,6 +8,7 @@
 import Foundation
 import SDOSVIPER
 import PromiseKit
+import SDOSSwiftExtension
 
 /*
  Dependency register JSON
@@ -32,7 +33,8 @@ extension AlbumRepository: AlbumRepositoryActions {
             Constants.ws.paramKey.id + "=" + String(id),
             Constants.ws.paramKey.attribute + "=" + Constants.ws.paramValue.attributeAlbum,
             Constants.ws.paramKey.entity + "=" + Constants.ws.paramValue.entityAlbum,
-            Constants.ws.paramKey.sort + "=" + Constants.ws.paramValue.sortRecent
+            Constants.ws.paramKey.sort + "=" + Constants.ws.paramValue.sortRecent,
+            Constants.ws.paramKey.lang + "=" + Locale.currentLocale
         ]
         
         let url = Environment.urlBase + Constants.ws.lookup + "?" + params.joined(separator: "&")

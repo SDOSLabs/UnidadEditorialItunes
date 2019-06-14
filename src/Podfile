@@ -12,14 +12,8 @@ def core_pods
     #Services
     pod 'SDOSPluggableApplicationDelegate'
 
-    #Keyboard
-    pod 'IQKeyboardManagerSwift'
-
     #Images
     pod 'Kingfisher'
-    
-    #Database
-    #pod 'RealmWrapper'
     
     #Architecture
     pod 'SDOSVIPER'

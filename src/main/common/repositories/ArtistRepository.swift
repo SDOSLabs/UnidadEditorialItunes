@@ -31,9 +31,11 @@ class ArtistRepository: BaseRepository {
 extension ArtistRepository: ArtistRepositoryActions {
     func loadSearch(term: String) -> RequestValue<Promise<[ArtistBO]>> {
         let params: [String] = [
-            Constants.ws.paramKey.term + "=" + term.urlEncoded,
+            Constants.ws.paramKey.term + "=" + term.trimmed.urlEncoded.replacingOccurrences(of: "%20", with: "+"),
+            Constants.ws.paramKey.media + "=" + Constants.ws.paramValue.media,
             Constants.ws.paramKey.attribute + "=" + Constants.ws.paramValue.attributeArtist,
-            Constants.ws.paramKey.entity + "=" + Constants.ws.paramValue.entityArtist
+            Constants.ws.paramKey.entity + "=" + Constants.ws.paramValue.entityArtist,
+            Constants.ws.paramKey.lang + "=" + Locale.currentLocale
         ]
         
         let url = Environment.urlBase + Constants.ws.search + "?" + params.joined(separator: "&")
